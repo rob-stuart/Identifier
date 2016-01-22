@@ -1,6 +1,8 @@
-# Identifier App
+Identifier App
+===
 
-#### Minimum Project Requirements
+Minimum Project Requirements
+---
 1. The application must implement at least three experts which are consulted for the identification.
 2. Each expert must be separate from another, and easily swappable.
 3. Each expert might provide an answer if his expertise allows.
@@ -9,3 +11,11 @@
 6. The application must interface with Google Maps or another online mapping service to use as an additional identification expert. *(Note: Google Maps or other mapping services does not count towards your required three experts)*
 
 **\*Note*** The implementation of the requirements listed above constitutes the minimum requirements for project completeness. Any additional functionality will be rewarded. Each team is **_required to implement at least one additional innovative feature_** not mentioned in the outline. Creativity will be generously rewarded.
+
+Group Members
+---
+- Abdul Ahad
+- Salma Belal
+- Josh Chatten
+- Nathanael Jordan
+- Robert Stuart
