@@ -206,93 +206,259 @@ N/A?
 \section{Functional Requirements}%TODO
 \label{sec:functional_requirements}
 % Begin Section
-This section of the SRS should contain all of the software requirements to a level of detail
-sufficient to enable designers to design a system to satisfy those requirements, and testers to test
-that the system satisfies those requirements. Throughout this section, every stated requirement
-should be externally perceivable by users, operators, or other external systems. These requirements
-should include at a minimum a description of every input (stimulus) into the system, every output
-(response) from the system, and all functions performed by the system in response to an input or in
-support of an output.
+This section of the SRS contains all of the functional software requirements for the ParkFinder app.
+This section enables designers to design a system satisfying those requirements, and the testers to
+test that the system satisfies those requirements.\\
+\textbf{Note: } The functional requirements are organized by business events (BE), then by
+viewpoints (VP).
 
-You normally have two options for organizing your functional requirements:
-\begin{enumerate}
-	\item Organize first by \emph{business events}, then by \emph{viewpoints}
-	\item Organize first by \emph{viewpoints}, then by \emph{business events}
-\end{enumerate}
-Choose the one which makes the most sense.
-
-For example, if you wish to organization by business events:
 \begin{enumerate}[{BE}1.]
-	\item Business Event
+	\item The developer wants to change or remove an expert
 	\begin{enumerate}[{VP1}.1]
-		\item Viewpoint
+		\item Developer
 			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
+				\item The system will allow the developer to swap or remove the expert
 			\end{enumerate}
-		\item Viewpoint
+		\item Security
 			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
+				\item The system will check if the swap is being made by an authorized party
 			\end{enumerate}
-		\item \dots
+		\item User
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item The manager will be asked to give permission for the swap
+            \end{enumerate}
 	\end{enumerate}
-	\item Business Event
-	\begin{enumerate}[{VP2}.1]
-		\item Viewpoint
-			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
-			\end{enumerate}
-		\item Viewpoint
-			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
-			\end{enumerate}
-		\item \dots
-	\end{enumerate}
-\end{enumerate}
 
-\underline{OR}, if you wish to organization by viewpoints:
-\begin{enumerate}[{VP}1.]
-	\item Viewpoint 
-	\begin{enumerate}[{BE1}.1]
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item \dots
-	\end{enumerate}
-	\item Viewpoint
-	\begin{enumerate}[{BE2}.1]
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item \dots
-	\end{enumerate}
-\end{enumerate}
+	\item The user wants to search for parks by amenities that are available at the parks
+    \begin{enumerate}[{VP1}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall give the user the option of selecting between various types
+                of amenities
+                \item Search results will be displayed, showing all parks that have the selected
+                amenity or amenities
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
 
+    \item The user wants to search for parks by activities that are available at the parks
+    \begin{enumerate}[{VP1}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall give the user the option of selecting between various types
+                of activities
+                \item Search results will be displayed, showing all parks that have the selected
+                activity or activities
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+    \item The user wants to search for parks by rentals available at the parks
+    \begin{enumerate}[{VP1}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall give the user the option of selecting between various types
+                of rentals
+                \item Search results will be displayed, showing all parks that have the selected
+                rental or rentals
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+    \item The user wants to search for parks by parks size
+    \begin{enumerate}[{VP1}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall give the user the option of selecting between various ranges
+                of park sizes
+                \item Search results will be displayed, showing all parks that are within the
+                selected size range or ranges
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+    \item The user wants to search for parks by seasons when the parks are open
+    \begin{enumerate}[{VP1}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall give the user the option of selecting between various seasons
+                \item Search results will be displayed, showing all parks that are open on during
+                the selected season or seasons
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+    \item The user wants to view more information about a specific park
+    \begin{enumerate}[{VP1}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall give the user an overview of the park. Thus will include the
+                highlights and popular attributes of the park, the address, phone number, size,
+                website, and operational dates
+                \item The system shall give the user information about all of the available
+                amenities, activities, and rentals at the park
+                \item The system will show the current weather conditions at the park
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+    \item The user requests to view the location or locations of a selected park or several parks
+    \begin{enumerate}[{VP1}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall display the location of the park or parks on a map
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+    \item The user wants to find the nearest 5 parks to their current location
+    \begin{enumerate}[{VP1}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system will display the closest 5 parks to the user's location
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item The system will locate the user's geographical location
+                \item The system will locate the closest 5 parks to the user's location
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+
+\end{enumerate}
 % End Section
 
 \section{Non-Functional Requirements}%TODO
