@@ -50,29 +50,18 @@ chattejj \and Nathanael Jordan \\ jordanen \and Robert Stuart \\ stuarr2}
 \label{sec:introduction}
 % Begin Section
 
-This section of the SRS should provide an overview of the entire SRS.
 
 \subsection{Purpose}%TODO
 \label{sub:purpose}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Delineate the purpose of the SRS
-	\item Specify the intended audience for the SRS
-\end{enumerate}
+The purpose of this software requirement specification document is to provide a description of the requirements needed to design the software for controlling the ParkFinder app. This app helps users by providing a more efficient method for looking up parks and acquiring park information.\newline\newline
+The intended readers of this document include all of the project’s stakeholders. This includes the end-user, the software engineers, and the park authorities.
 % End SubSection
 
 \subsection{Scope}%TODO
 \label{sub:scope}
 % Begin SubSection
-\begin{enumerate}[a)]
-    \item Identify the software product(s) to be produced by name (e.g., Host DBMS, Report
-    Generator, etc.)
-	\item Explain what the software product(s) will, and, if necessary, will not do
-	\item Describe the application of the software being specified, including relevant benefits,
-	objectives, and goals
-	\item Be consistent with similar statements in higher-level specifications (e.g., the system
-	requirements specification), if they exist 
-\end{enumerate}
+The software product being described in this document is called the ParkFinder app. This product will have datasets of information about parks all over the world and will allow the client to use search methods in order to find parks based on their desired attributes. The app is meant to be used anywhere in the world, provided an Android or iOS device with the app installed. This provides clients with an easier, faster, and more efficient way to look up parks and acquire information such as the location, facilities, activities, and rentals that the parks provide.
 % End SubSection
 
 \subsection{Definitions, Acronyms, and Abbreviations}%TODO
@@ -81,15 +70,10 @@ This section of the SRS should provide an overview of the entire SRS.
 \begin{description}
     \item[\textbf{Experts}] A search criteria used for the identification of a particular park, or
     group of parks. ex. An expert could be for the rentals available at a park
+    \item[\textbf{SRS}] Software requirements specification.
+    \item[\textbf{API}] Application programming interface.
 \end{description}
 
-
-\color{red}
-\begin{enumerate}[a)]
-	\item Provide the definitions of all terms, acronyms, and abbreviations required to properly
-	interpret the SRS
-\end{enumerate}
-\color{black}
 % End SubSection
 
 \subsection{References}%TODO
@@ -106,10 +90,7 @@ This section of the SRS should provide an overview of the entire SRS.
 \subsection{Overview}%TODO
 \label{sub:overview}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Describe what the rest of the SRS contains
-	\item Explain how the SRS is organized
-\end{enumerate}
+The following section of this document, Overall Description, provides the reader with an overview of many important aspects of ParkFinder. This includes information about the functionality of the app, characteristics of the intended users, the constraints that will limit developer options, and any assumptions or dependencies that can potentially change the requirements. The last two sections of the SRS deal with both the Functional and Non-Functional Requirements. Included with the Functional Requirements will be all the business events the system will need to handle and the viewpoints for each event. The Non-Functional Requirements are divided into several categories such as requirements for the look and feel of the system or the performance requirements.
 % End SubSection
 
 % End Section
@@ -171,34 +152,13 @@ between this project and others, some minor functionality may not be implemented
 \subsection{Assumptions and Dependencies}%TODO
 \label{sub:assumptions_and_dependencies}
 % Begin SubSection
-N/A?
-
-
-\color{red}
-\begin{enumerate}[a)]
-    \item List each of the factors that affect the requirements stated in the SRS
-    \item These factors are not design constraints on the software but are, rather, any changes to
-    them that can affect the requirements in the SRS
-	\begin{itemize}
-        \item \textbf{Example}: An assumption may be that a specific operating system will be
-        available on the hardware designated for the software product. If, in fact, the operating
-        system is not available, the SRS would then have to change accordingly.
-	\end{itemize}
-\end{enumerate}
-\color{black}
+For the use external services, such as weather updates or the use of a mapping service, it is assumed that the user has an internet connection. These services are also assumed to provide accurate information to the user. Also assumed that the user will run the application on supported android device. All information acquired about each park is assumed to be correct and up to date. 
 % End SubSection
 
 \subsection{Apportioning of Requirements}%TODO
 \label{sub:apportioning_of_requirements}
 % Begin SubSection
-N/A?
-
-
-\color{red}
-\begin{enumerate}[a)]
-	\item Identify requirements that may be delayed until future versions of the system
-\end{enumerate}
-\color{black}
+The addition of parks from all over the world may be delayed and just parks from Ontario will be implemented in the initial version of the system.
 % End SubSection
 
 % End Section
