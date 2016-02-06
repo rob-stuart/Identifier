@@ -29,7 +29,7 @@
 % Title Details
 %------------------------------------------------------------------------------
 \title{ParkFinder\\Software Requirements Document\\SE 3A04}
-\author{Abdul Ahad \\ \textcolor{red}{??????} \and Salma Belal \\ belalsm \and Josh Chatten \\
+\author{Abdul Ahad \\ akhteraa \and Salma Belal \\ belalsm \and Josh Chatten \\
 chattejj \and Nathanael Jordan \\ jordanen \and Robert Stuart \\ stuarr2}
 \date{\today}
 
@@ -54,14 +54,23 @@ chattejj \and Nathanael Jordan \\ jordanen \and Robert Stuart \\ stuarr2}
 \subsection{Purpose}%TODO
 \label{sub:purpose}
 % Begin SubSection
-The purpose of this software requirement specification document is to provide a description of the requirements needed to design the software for controlling the ParkFinder app. This app helps users by providing a more efficient method for looking up parks and acquiring park information.\newline\newline
-The intended readers of this document include all of the project’s stakeholders. This includes the end-user, the software engineers, and the park authorities.
+The purpose of this software requirement specification document is to provide a description of the
+requirements needed to design the software for controlling the ParkFinder app. This app helps users
+by providing a more efficient method for looking up parks and acquiring park information.
+\newline\newline
+The intended readers of this document include all of the project’s stakeholders. This includes the
+end-user, the software engineers, and the park authorities.
 % End SubSection
 
 \subsection{Scope}%TODO
 \label{sub:scope}
 % Begin SubSection
-The software product being described in this document is called the ParkFinder app. This product will have datasets of information about parks all over the world and will allow the client to use search methods in order to find parks based on their desired attributes. The app is meant to be used anywhere in the world, provided an Android or iOS device with the app installed. This provides clients with an easier, faster, and more efficient way to look up parks and acquire information such as the location, facilities, activities, and rentals that the parks provide.
+The software product being described in this document is called the ParkFinder app. This product
+will have datasets of information about parks all over the world and will allow the client to use
+search methods in order to find parks based on their desired attributes. The app is meant to be used
+anywhere in the world, provided an Android or iOS device with the app installed. This provides
+clients with an easier, faster, and more efficient way to look up parks and acquire information such
+as the location, facilities, activities, and rentals that the parks provide.
 % End SubSection
 
 \subsection{Definitions, Acronyms, and Abbreviations}%TODO
@@ -79,18 +88,27 @@ The software product being described in this document is called the ParkFinder a
 \subsection{References}%TODO
 \label{sub:references}
 % Begin SubSection
+\color{red}
 \begin{enumerate}[a)]
 	\item Provide a complete list of all documents referenced elsewhere in the SRS
     \item Identify each document by title, report number (if applicable), date, and publishing
     organization
 	\item Specify the sources from which the references can be obtained
 \end{enumerate}
+\color{black}
 % End SubSection
 
 \subsection{Overview}%TODO
 \label{sub:overview}
 % Begin SubSection
-The following section of this document, Overall Description, provides the reader with an overview of many important aspects of ParkFinder. This includes information about the functionality of the app, characteristics of the intended users, the constraints that will limit developer options, and any assumptions or dependencies that can potentially change the requirements. The last two sections of the SRS deal with both the Functional and Non-Functional Requirements. Included with the Functional Requirements will be all the business events the system will need to handle and the viewpoints for each event. The Non-Functional Requirements are divided into several categories such as requirements for the look and feel of the system or the performance requirements.
+The following section of this document, Overall Description, provides the reader with an overview of
+many important aspects of ParkFinder. This includes information about the functionality of the app,
+characteristics of the intended users, the constraints that will limit developer options, and any
+assumptions or dependencies that can potentially change the requirements. The last two sections of
+the SRS deal with both the Functional and Non-Functional Requirements. Included with the Functional
+Requirements will be all the business events the system will need to handle and the viewpoints for
+each event. The Non-Functional Requirements are divided into several categories such as requirements
+for the look and feel of the system or the performance requirements.
 % End SubSection
 
 % End Section
@@ -152,13 +170,17 @@ between this project and others, some minor functionality may not be implemented
 \subsection{Assumptions and Dependencies}%TODO
 \label{sub:assumptions_and_dependencies}
 % Begin SubSection
-For the use external services, such as weather updates or the use of a mapping service, it is assumed that the user has an internet connection. These services are also assumed to provide accurate information to the user. Also assumed that the user will run the application on supported android device. All information acquired about each park is assumed to be correct and up to date. 
+For the use external services, such as weather updates or the use of a mapping service, it is
+assumed that the user has an internet connection. These services are also assumed to provide
+accurate information to the user. Also assumed that the user will run the application on supported
+android device. All information acquired about each park is assumed to be correct and up to date. 
 % End SubSection
 
 \subsection{Apportioning of Requirements}%TODO
 \label{sub:apportioning_of_requirements}
 % Begin SubSection
-The addition of parks from all over the world may be delayed and just parks from Ontario will be implemented in the initial version of the system.
+The addition of parks from all over the world may be delayed and just parks from Ontario will be
+implemented in the initial version of the system.
 % End SubSection
 
 % End Section
@@ -571,7 +593,9 @@ viewpoints (VP).
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
 	\item The application can be used anywhere on any supported device.
-	\item The application location-based services will only be available where an internet connection is present.
+    \item The application location-based services will only be available where an internet
+    connection
+    is present.
 \end{enumerate}
 % End SubSubSection
 
@@ -579,7 +603,8 @@ viewpoints (VP).
 \label{ssub:requirements_for_interfacing_with_adjacent_systems}
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
-	\item The application will interface with a mapping service, weather service and the device global positioning system.
+    \item The application will interface with a mapping service, weather service and the device
+    global positioning system.
 \end{enumerate}
 % End SubSubSection
 
@@ -610,8 +635,10 @@ viewpoints (VP).
 \label{ssub:maintenance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS}1. ]
-	\item Application updates will be pushed through the application store services, annually, to all devices with installed instances of the app.
-	\item Any application security vulnerabilities will be patched immediately and pushed to the application store service.
+    \item Application updates will be pushed through the application store services, annually, to
+    all devices with installed instances of the app.
+    \item Any application security vulnerabilities will be patched immediately and pushed to the
+    application store service.
 \end{enumerate}
 % End SubSubSection
 
@@ -627,7 +654,8 @@ viewpoints (VP).
 \label{ssub:adaptability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS}1. ]
-	\item The application shall be modular enough to make it easier for future feature additions and platform migrations.
+    \item The application shall be modular enough to make it easier for future feature additions and
+    platform migrations.
 \end{enumerate}
 % End SubSubSection
 
@@ -649,7 +677,8 @@ viewpoints (VP).
 \label{ssub:integrity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
-	\item The application will locally encrypt and store any inputs and searches users do on their devices
+    \item The application will locally encrypt and store any inputs and searches users do on their
+    devices
 \end{enumerate}
 % End SubSubSection
 
@@ -657,7 +686,8 @@ viewpoints (VP).
 \label{ssub:privacy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
-	\item The application shall encrypt all user data. Any user data including searches will be kept confidential.
+    \item The application shall encrypt all user data. Any user data including searches will be kept
+    confidential.
 \end{enumerate}
 % End SubSubSection
 
@@ -673,7 +703,8 @@ viewpoints (VP).
 \label{ssub:immunity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
-	\item The application shall be immune to any manual attacks such as man-in-the-middle as well as automated attacks from trojan horses and malicious scripts.
+    \item The application shall be immune to any manual attacks such as man-in-the-middle as well as
+    automated attacks from trojan horses and malicious scripts.
 \end{enumerate}
 % End SubSubSection
 
@@ -687,7 +718,8 @@ viewpoints (VP).
 \label{ssub:cultural_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{CP}1. ]
-	\item The application shall display information in the regional English spelling and will remain religiously sensitive.
+    \item The application shall display information in the regional English spelling and will remain
+    religiously sensitive.
 \end{enumerate}
 % End SubSubSection
 
@@ -717,7 +749,8 @@ viewpoints (VP).
 \label{ssub:standards_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR}1. ]
-	\item The application shall comply with Android standards including resolution, screen size, and speed limitations.
+    \item The application shall comply with Android standards including resolution, screen size, and
+    speed limitations.
 \end{enumerate}
 % End SubSubSection
 
@@ -729,13 +762,8 @@ viewpoints (VP).
 \section{Division of Labour}%TODO
 \label{sec:division_of_labour}
 % Begin Section
-\color{red}
-Include a Division of Labour sheet which indicates the contributions of each team member. This sheet
-must be signed by all team members.
-\color{black}
 
 \begin{table}[htbp]
-\caption{Division of Labour}
 \vspace{-0.06in}
 \begin{center}
 \setlength{\extrarowheight}{4.0pt}
@@ -743,20 +771,24 @@ must be signed by all team members.
 \hline
 \textbf{Contributions} & \textbf{Name} & \textbf{Signature}\\
 \hline
-Section~\ref{sec:non-functional_requirements} & Abdul Ahad & \\
+Sections~\ref{sub:operational_and_environmental_requirements}-\ref{sub:cultural_and_political_requirements} 
+& Abdul Ahad & \\
 \hline
 Section~\ref{sec:functional_requirements} & Salma Belal & \\
 \hline
-Section~\ref{sec:introduction} & Josh Chatten & \\
+Sections~\ref{sec:introduction}~\&
+\ref{sub:assumptions_and_dependencies}-\ref{sub:apportioning_of_requirements} & Josh Chatten & \\
 \hline
-Section~\ref{sec:non-functional_requirements} & Nathanael Jordan  & \\
+Sections~\ref{sub:look_and_feel_requirements}-\ref{sub:performance_requirements} & Nathanael Jordan  & \\
 \hline
-Section~\ref{sec:overall_description} & Robert Stuart & \\
+Sections~\ref{sub:product_perspective}-\ref{sub:constraints} & Robert Stuart & \\
 \hline
 \end{tabular}
 \end{center}
 \label{divOfLabour}
 \end{table}
+
 % End Section
+
 \end{document}
 %------------------------------------------------------------------------------
