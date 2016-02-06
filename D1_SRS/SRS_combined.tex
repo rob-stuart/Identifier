@@ -1,4 +1,4 @@
-\documentclass[]{article}
+\documentclass[titlepage]{article}
 
 % Imported Packages
 %------------------------------------------------------------------------------
@@ -13,8 +13,10 @@
 \usepackage{extarrows}
 \usepackage{setspace}
 
-\usepackage{color}
 \usepackage{array}
+\usepackage{color}
+\usepackage[hidelinks]{hyperref}
+
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -27,8 +29,10 @@
 % Title Details
 %------------------------------------------------------------------------------
 \title{ParkFinder\\Software Requirements Document\\SE 3A04}
-\author{Abdul Ahad \and Salma Belal \and Josh Chatten \and Nathanael Jordan \and Robert Stuart}
-\date{\today}                               
+\author{Abdul Ahad \\ \textcolor{red}{??????} \and Salma Belal \\ belalsm \and Josh Chatten \\
+chattejj \and Nathanael Jordan \\ jordanen \and Robert Stuart \\ stuarr2}
+\date{\today}
+
 %------------------------------------------------------------------------------
 
 % Document
@@ -36,43 +40,40 @@
 \begin{document}
 
 \maketitle	
+\thispagestyle{empty}
+\clearpage
+\setcounter{tocdepth}{2}% Only show down to subsections?
+\tableofcontents
+\clearpage
 
 \section{Introduction}%TODO
 \label{sec:introduction}
 % Begin Section
 
-This section of the SRS should provide an overview of the entire SRS.
 
 \subsection{Purpose}%TODO
 \label{sub:purpose}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Delineate the purpose of the SRS
-	\item Specify the intended audience for the SRS
-\end{enumerate}
+The purpose of this software requirement specification document is to provide a description of the requirements needed to design the software for controlling the ParkFinder app. This app helps users by providing a more efficient method for looking up parks and acquiring park information.\newline\newline
+The intended readers of this document include all of the project’s stakeholders. This includes the end-user, the software engineers, and the park authorities.
 % End SubSection
 
 \subsection{Scope}%TODO
 \label{sub:scope}
 % Begin SubSection
-\begin{enumerate}[a)]
-    \item Identify the software product(s) to be produced by name (e.g., Host DBMS, Report
-    Generator, etc.)
-	\item Explain what the software product(s) will, and, if necessary, will not do
-	\item Describe the application of the software being specified, including relevant benefits,
-	objectives, and goals
-	\item Be consistent with similar statements in higher-level specifications (e.g., the system
-	requirements specification), if they exist 
-\end{enumerate}
+The software product being described in this document is called the ParkFinder app. This product will have datasets of information about parks all over the world and will allow the client to use search methods in order to find parks based on their desired attributes. The app is meant to be used anywhere in the world, provided an Android or iOS device with the app installed. This provides clients with an easier, faster, and more efficient way to look up parks and acquire information such as the location, facilities, activities, and rentals that the parks provide.
 % End SubSection
 
 \subsection{Definitions, Acronyms, and Abbreviations}%TODO
 \label{sub:definitions_acronyms_and_abbreviations}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Provide the definitions of all terms, acronyms, and abbreviations required to properly
-	interpret the SRS
-\end{enumerate}
+\begin{description}
+    \item[\textbf{Experts}] A search criteria used for the identification of a particular park, or
+    group of parks. ex. An expert could be for the rentals available at a park
+    \item[\textbf{SRS}] Software requirements specification.
+    \item[\textbf{API}] Application programming interface.
+\end{description}
+
 % End SubSection
 
 \subsection{References}%TODO
@@ -89,10 +90,7 @@ This section of the SRS should provide an overview of the entire SRS.
 \subsection{Overview}%TODO
 \label{sub:overview}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Describe what the rest of the SRS contains
-	\item Explain how the SRS is organized
-\end{enumerate}
+The following section of this document, Overall Description, provides the reader with an overview of many important aspects of ParkFinder. This includes information about the functionality of the app, characteristics of the intended users, the constraints that will limit developer options, and any assumptions or dependencies that can potentially change the requirements. The last two sections of the SRS deal with both the Functional and Non-Functional Requirements. Included with the Functional Requirements will be all the business events the system will need to handle and the viewpoints for each event. The Non-Functional Requirements are divided into several categories such as requirements for the look and feel of the system or the performance requirements.
 % End SubSection
 
 % End Section
@@ -100,73 +98,35 @@ This section of the SRS should provide an overview of the entire SRS.
 \section{Overall Description}%TODO
 \label{sec:overall_description}
 % Begin Section
-\color{red}
-This section of the SRS should describe the general factors that affect the product and its
-requirements. It does not state specific requirements; it provides a background for those
-requirements and makes them easier to understand.
-\color{black}
 
 \subsection{Product Perspective}%TODO
 \label{sub:product_perspective}
 % Begin SubSection
-Several web-services, such as Google maps or \texttt{www.ontarioparks.ca}, are available to
-assist with locating parks. However, no such service is available to an off-line user. The
-ParkFinder app will allow users to find parks that match user criteria without necessarily the need
-for an Internet connection. Although all parks and their attributes will be packaged with the
-ParkFinder app, some search criteria will require external resources. Some of these external
-resources are offered by the mobile device being used, while some must be accessed over the
-Internet. \textit{One such scenario is if a user wishes to locate the nearest park to their current
-location; the Location Services API of the device must be used to determine the users current
-location, as well as the Google Maps API to determine which park is closest to the users current
-location.}
-
-
-\color{red}
-\begin{enumerate}[a)]
-	\item Put the product into perspective with other related products, i.e., context
-	\item If the product is independent and totally self-contained, it should be stated here
-    \item If the SRS defines a product that is a component of a larger system, as frequently occurs,
-    then this subsection should relate the requirements of that larger system to functionality of
-    the software and should identify interfaces between that system and the software
-	\item A block diagram showing the major components of the larger system, interconnections, and
-	external interfaces can be helpful
-\end{enumerate}
-\color{black}
+Several web-services, such as Google or \url{www.ontarioparks.ca}, are available to assist with
+locating parks. However these services are not available to an off-line user. The ParkFinder app
+will allow its users to find parks that match their search criteria. More importantly, the app
+will be able to perform the majority of its search functionalities without an Internet connection,
+thus allowing the user the freedom to use the app whenever and wherever they want. As the ParkFinder
+app only requires external resources for a subset of its functionality and no external applications
+depend upon the ParkFinder app, it cannot be considered to be a component of a larger system.
 % End SubSection
 
 \subsection{Product Functions}%TODO
 \label{sub:product_functions}
 % Begin SubSection
 \begin{enumerate}[a)]
-    \item The product must have available a minimum of four unique search criteria to allow the user
-	to query a list of parks, one of these criteria shall be an online mapping service
-    \item Each search criteria provided by the product must be easily replaceable by another
-    criteria
-	\item The product shall display search results to the user via a centralized ``forum''
-	\item Cryptosystem??
-	\item asdf
-	\item asdf - too much like an assignment..? make it more like a real project...
+	\item The product shall maintain a database of parks and associated attributes
+    \item The app will provide a minimum of four methods for querying the park database, these
+    methods	will be referred to as ``experts''
+    \item The experts must be separate from one another, and be easily swappable
+    \item One expert must be able to locate parks based on location, to do so
+    an on-line mapping service will need to be utilized (when an Internet connection is available)
+    \item Results from a users query shall be displayed via a centralized ``forum''
+    \item Messages sent between the user and the experts shall be encrypted
+    \item The user can select a park from the query results and the ParkFinder app shall display
+    more detailed information about that park, including a weather report (when an Internet
+    connection is available)
 \end{enumerate}
-
-
-\color{red}
-\begin{enumerate}[a)]
-	\item Provide a summary of the major functions that the software will perform.
-	\begin{itemize}
-        \item \textbf{Example}: An SRS for an accounting program may use this part to address
-        customer account maintenance, customer statement, and invoice preparation without mentioning
-        the vast amount of detail that each of those functions requires.
-	\end{itemize}
-    \item Functions should be organized in a way that makes the list of functions understandable to
-    the customer or to anyone else reading the document for the first time
-    \item Textual or graphical methods can be used to show the different functions and their
-    relationships
-	\begin{itemize}
-        \item Such a diagram is not intended to show a design of a product, but simply shows the
-        logical relationships among variables
-	\end{itemize} 
-\end{enumerate}
-\color{black}
 % End SubSection
 
 \subsection{User Characteristics}%TODO
@@ -174,68 +134,31 @@ location.}
 % Begin SubSection
 The intended users of the ParkFinder app are people wishing to discover new parks that they have not
 been to before as well as people completely new to visiting parks. It is expected that the primary
-users will be adults however, visiting parks can be a family affair and thus some children can also
-be expected to use the ParkFinder. It is therefore expected that the age range could be 10+, with
-at least an elementary level education. To cater to such a diverse age range and education levels,
-the ParkFinder app must have a simple and easy to use user interface requiring only the most basic
-mobile device skills. Such skills would include being able to select buttons, use a keyboard, and
-navigate menu screens.
-
-
-\color{red}
-\begin{enumerate}[a)]
-	\item Describe those general characteristics of the intended users of the product including
-	educational level, experience, and technical expertise
-	\item Do not state specific requirements, but rather provide the reasons why certain specific
-	requirements are later specified
-\end{enumerate}
-\color{black}
+users will be adults however, visiting parks can be a family affair and thus children can also
+be expected to use the ParkFinder. Thus we can expect the ParkFinder app to be used by children,
+adults, and the elderly. With such a large age range, only the most basic education levels can be
+expected. Being an app solely available on mobile devices, it can be expected that users will
+possess the bare minimum skill required to operate a mobile device. Such skills would include being
+able to select buttons, use a keyboard, and navigate menu screens.
 % End SubSection
 
 \subsection{Constraints}%TODO
 \label{sub:constraints}
 % Begin SubSection
-Anything???
-
-
-\color{red}
-\begin{enumerate}[a)]
-	\item Provide a general description of any other items that will limit the developer's options
-\end{enumerate}
-\color{black}
+The primary constraint limiting the development teams options is time. Due to chaotic scheduling
+between this project and others, some minor functionality may not be implemented.
 % End SubSection
 
 \subsection{Assumptions and Dependencies}%TODO
 \label{sub:assumptions_and_dependencies}
 % Begin SubSection
-asdf TODO
-
-
-\color{red}
-\begin{enumerate}[a)]
-    \item List each of the factors that affect the requirements stated in the SRS
-    \item These factors are not design constraints on the software but are, rather, any changes to
-    them that can affect the requirements in the SRS
-	\begin{itemize}
-        \item \textbf{Example}: An assumption may be that a specific operating system will be
-        available on the hardware designated for the software product. If, in fact, the operating
-        system is not available, the SRS would then have to change accordingly.
-	\end{itemize}
-\end{enumerate}
-\color{black}
+For the use external services, such as weather updates or the use of a mapping service, it is assumed that the user has an internet connection. These services are also assumed to provide accurate information to the user. Also assumed that the user will run the application on supported android device. All information acquired about each park is assumed to be correct and up to date. 
 % End SubSection
 
 \subsection{Apportioning of Requirements}%TODO
 \label{sub:apportioning_of_requirements}
 % Begin SubSection
-asdf TODO
-
-
-\color{red}
-\begin{enumerate}[a)]
-	\item Identify requirements that may be delayed until future versions of the system
-\end{enumerate}
-\color{black}
+The addition of parks from all over the world may be delayed and just parks from Ontario will be implemented in the initial version of the system.
 % End SubSection
 
 % End Section
@@ -243,93 +166,259 @@ asdf TODO
 \section{Functional Requirements}%TODO
 \label{sec:functional_requirements}
 % Begin Section
-This section of the SRS should contain all of the software requirements to a level of detail
-sufficient to enable designers to design a system to satisfy those requirements, and testers to test
-that the system satisfies those requirements. Throughout this section, every stated requirement
-should be externally perceivable by users, operators, or other external systems. These requirements
-should include at a minimum a description of every input (stimulus) into the system, every output
-(response) from the system, and all functions performed by the system in response to an input or in
-support of an output.
+This section of the SRS contains all of the functional software requirements for the ParkFinder app.
+This section enables designers to design a system satisfying those requirements, and the testers to
+test that the system satisfies those requirements.\\
+\textbf{Note: } The functional requirements are organized by business events (BE), then by
+viewpoints (VP).
 
-You normally have two options for organizing your functional requirements:
-\begin{enumerate}
-	\item Organize first by \emph{business events}, then by \emph{viewpoints}
-	\item Organize first by \emph{viewpoints}, then by \emph{business events}
-\end{enumerate}
-Choose the one which makes the most sense.
-
-For example, if you wish to organization by business events:
 \begin{enumerate}[{BE}1.]
-	\item Business Event
-	\begin{enumerate}[{VP1}.1]
-		\item Viewpoint
+	\item The developer wants to change or remove an expert
+	\begin{enumerate}[{VP\theenumi}.1]
+		\item Developer
 			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
+				\item The system will allow the developer to swap or remove the expert
 			\end{enumerate}
-		\item Viewpoint
+		\item Security
 			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
+				\item The system will check if the swap is being made by an authorized party
 			\end{enumerate}
-		\item \dots
+		\item User
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item The manager will be asked to give permission for the swap
+            \end{enumerate}
 	\end{enumerate}
-	\item Business Event
-	\begin{enumerate}[{VP2}.1]
-		\item Viewpoint
-			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
-			\end{enumerate}
-		\item Viewpoint
-			\begin{enumerate}
-				\item Requirement
-				\item Requirement
-				\item \dots
-			\end{enumerate}
-		\item \dots
-	\end{enumerate}
-\end{enumerate}
 
-\underline{OR}, if you wish to organization by viewpoints:
-\begin{enumerate}[{VP}1.]
-	\item Viewpoint 
-	\begin{enumerate}[{BE1}.1]
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item \dots
-	\end{enumerate}
-	\item Viewpoint
-	\begin{enumerate}[{BE2}.1]
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item Business Event
-		\begin{enumerate}
-			\item Requirement
-			\item Requirement
-			\item \dots
-		\end{enumerate}
-		\item \dots
-	\end{enumerate}
-\end{enumerate}
+	\item The user wants to search for parks by amenities that are available at the parks
+    \begin{enumerate}[{VP\theenumi}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall give the user the option of selecting between various types
+                of amenities
+                \item Search results will be displayed, showing all parks that have the selected
+                amenity or amenities
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
 
+    \item The user wants to search for parks by activities that are available at the parks
+    \begin{enumerate}[{VP\theenumi}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall give the user the option of selecting between various types
+                of activities
+                \item Search results will be displayed, showing all parks that have the selected
+                activity or activities
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+    \item The user wants to search for parks by rentals available at the parks
+    \begin{enumerate}[{VP\theenumi}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall give the user the option of selecting between various types
+                of rentals
+                \item Search results will be displayed, showing all parks that have the selected
+                rental or rentals
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+    \item The user wants to search for parks by parks size
+    \begin{enumerate}[{VP\theenumi}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall give the user the option of selecting between various ranges
+                of park sizes
+                \item Search results will be displayed, showing all parks that are within the
+                selected size range or ranges
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+    \item The user wants to search for parks by seasons when the parks are open
+    \begin{enumerate}[{VP\theenumi}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall give the user the option of selecting between various seasons
+                \item Search results will be displayed, showing all parks that are open on during
+                the selected season or seasons
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+    \item The user wants to view more information about a specific park
+    \begin{enumerate}[{VP\theenumi}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall give the user an overview of the park. Thus will include the
+                highlights and popular attributes of the park, the address, phone number, size,
+                website, and operational dates
+                \item The system shall give the user information about all of the available
+                amenities, activities, and rentals at the park
+                \item The system will show the current weather conditions at the park
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+    \item The user requests to view the location or locations of a selected park or several parks
+    \begin{enumerate}[{VP\theenumi}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system shall display the location of the park or parks on a map
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+    \item The user wants to find the nearest 5 parks to their current location
+    \begin{enumerate}[{VP\theenumi}.1]
+        \item Developer
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+        \item Security
+            \begin{enumerate}
+                \item The system will encrypt and the decrypt the user's input
+                \item The system will encrypt and then decrypt the system's output
+            \end{enumerate}
+        \item User
+            \begin{enumerate}
+                \item The system will display the closest 5 parks to the user's location
+            \end{enumerate}
+        \item Geographical
+            \begin{enumerate}
+                \item The system will locate the user's geographical location
+                \item The system will locate the closest 5 parks to the user's location
+            \end{enumerate}
+        \item Manager
+            \begin{enumerate}
+                \item N/A
+            \end{enumerate}
+    \end{enumerate}
+
+
+\end{enumerate}
 % End Section
 
 \section{Non-Functional Requirements}%TODO
