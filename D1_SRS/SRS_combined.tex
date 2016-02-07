@@ -16,6 +16,11 @@
 \usepackage{array}
 \usepackage{color}
 \usepackage[hidelinks]{hyperref}
+%------------------------------------------------------------------------------
+
+% Custom commands
+%------------------------------------------------------------------------------
+\newcounter{myCounter}
 
 %------------------------------------------------------------------------------
 
@@ -449,13 +454,17 @@ viewpoints (VP).
 \subsection{Look and Feel Requirements}
 \label{sub:look_and_feel_requirements}
 % Begin SubSection
+\setcounter{myCounter}{0}
 
 \subsubsection{Appearance Requirements}
 \label{ssub:appearance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LF}1. ]
-	\item The application shall use the team logo displayed on team developed pages of the application. 
-	\item The application shall use interactive displays that look like they can be interacted with. 
+    \setcounter{enumi}{\themyCounter}
+    \item The application shall use the team logo displayed on team developed pages of the
+    application. 
+    \item The application shall use interactive displays that look like they can be interacted with.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -463,7 +472,9 @@ viewpoints (VP).
 \label{ssub:style_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LF}1. ]
-	\item After reading a brief description of the application, 90 percent of potential users shall feel that the application is trustworthy.
+    \setcounter{enumi}{\themyCounter}
+    \item After reading a brief description of the application, 90 percent of potential users shall
+    feel that the application is trustworthy.
 	
 	
 \end{enumerate}
@@ -474,20 +485,22 @@ viewpoints (VP).
 \subsection{Usability and Humanity Requirements}
 \label{sub:usability_and_humanity_requirements}
 % Begin SubSection
+\setcounter{myCounter}{0}
 
 \subsubsection{Ease of Use Requirements}
 \label{ssub:ease_of_use_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH}1. ]
-	\item 90 percent of a test panel with a third grade education shall successfully complete the use of three application experts within 20 minutes of using the application. 
-	
-	\item After a two-week period with the application, users shall exhibit an error rate of less than two percent.
-	
-	\item A feedback survey shall show that 85 percent of users with little English background shall successfully use one expert's functionality within 20 minutes. 
-	
-	\item 90 percent of a sample of people with a third grade education shall understand 99 percent of the language used in the application.      
-	
-	
+    \setcounter{enumi}{\themyCounter}
+    \item 90 percent of a test panel with a third grade education shall successfully complete the
+    use of three application experts within 20 minutes of using the application. 
+    \item After a two-week period with the application, users shall exhibit an error rate of less
+    than two percent.
+    \item A feedback survey shall show that 85 percent of users with little English background shall
+    successfully use one expert's functionality within 20 minutes. 
+    \item 90 percent of a sample of people with a third grade education shall understand 99 percent
+    of the language used in the application.      
+	\setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -495,7 +508,10 @@ viewpoints (VP).
 \label{ssub:personalization_and_internationalization_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH}1. ]
-	\item The application shall allow the user to choose their preferred background colour scheme for the application. 
+    \setcounter{enumi}{\themyCounter}
+    \item The application shall allow the user to choose their preferred background colour scheme
+    for the application.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -503,11 +519,12 @@ viewpoints (VP).
 \label{ssub:learning_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH}1. ]
-	\item It shall take 20 minutes to learn how to use 90 percent of the application's functionality based on a test pool of people with a third grade education.
-	
-	\item All application functionality shall be easy to use without a tutorial or training for the application.
-	
-
+    \setcounter{enumi}{\themyCounter}
+    \item It shall take 20 minutes to learn how to use 90 percent of the application's functionality
+    based on a test pool of people with a third grade education.
+    \item All application functionality shall be easy to use without a tutorial or training for the
+    application.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -515,20 +532,24 @@ viewpoints (VP).
 \label{ssub:understandability_and_politeness_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{UH}1. ]
-	\item Use of the application experts shall be intuitive as to what inputs these experts expect.
-
-	\item The application shall hide its internal details from the user. 
+    \setcounter{enumi}{\themyCounter}
+    \item Use of the application experts shall be intuitive as to what inputs these experts expect.
+    \item The application shall hide its internal details from the user.
 	%\item The application shall not use provocative language
 	%\item The application shall use politically correct terminology.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Accessibility Requirements}
 \label{ssub:accessibility_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{UH}1. ]
-	\item N/A
-\end{enumerate}
+N/A
+%\begin{enumerate}[{UH}1. ]
+%    \setcounter{enumi}{\themyCounter}
+%	 \item N/A
+%    \setcounter{myCounter}{\theenumi}
+%\end{enumerate}
 % End SubSubSection
 
 % End SubSection
@@ -536,12 +557,15 @@ viewpoints (VP).
 \subsection{Performance Requirements}
 \label{sub:performance_requirements}
 % Begin SubSection
+\setcounter{myCounter}{0}
 
 \subsubsection{Speed and Latency Requirements}
 \label{ssub:speed_and_latency_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item The application shall return information to the user within 2 seconds. 
+    \setcounter{enumi}{\themyCounter}
+	\item The application shall return information to the user within 2 seconds.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -549,7 +573,9 @@ viewpoints (VP).
 \label{ssub:safety_critical_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item The application shall not consume more than 500mW of power at any given time.   
+    \setcounter{enumi}{\themyCounter}
+	\item The application shall not consume more than 500mW of power at any given time.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -557,9 +583,10 @@ viewpoints (VP).
 \label{ssub:precision_or_accuracy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
+    \setcounter{enumi}{\themyCounter}
 	\item The application shall display park ranges as a integer value. 
 	\item The application shall display park size as an integer value. 
-	
+	\setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -567,8 +594,12 @@ viewpoints (VP).
 \label{ssub:reliability_and_availability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item The application's weather service and mapping service will only be available when the device has an internet connection.
-	%\item The application shall display the most up-to-date data about the parks for which the data is retrieved from.
+    \setcounter{enumi}{\themyCounter}
+    \item The application's weather service and mapping service will only be available when the
+    device has an internet connection.
+    %\item The application shall display the most up-to-date data about the parks for which the data
+    % is retrieved from.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -576,31 +607,42 @@ viewpoints (VP).
 \label{ssub:robustness_or_fault_tolerance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
+    \setcounter{enumi}{\themyCounter}
 	\item In the event of losing internet connectivity, the user will still be able to use the application's experts. 
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Capacity Requirements}
 \label{ssub:capacity_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
-	\item N/A
-\end{enumerate}
+N/A
+%\begin{enumerate}[{PR}1. ]
+%    \setcounter{enumi}{\themyCounter}
+%	\item N/A
+%    \setcounter{myCounter}{\theenumi}
+%\end{enumerate}
 % End SubSubSection
 
 \subsubsection{Scalability or Extensibility Requirements}
 \label{ssub:scalability_or_extensibility_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{PR}1. ]
-	\item N/A
-\end{enumerate}
+N/A
+%\begin{enumerate}[{PR}1. ]
+%	\setcounter{enumi}{\themyCounter}
+%    \item N/A
+%    \setcounter{myCounter}{\theenumi}
+%\end{enumerate}
 % End SubSubSection
 
 \subsubsection{Longevity Requirements}
 \label{ssub:longevity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
-	\item The application is expected to operate and be available for download for at least 5 years without any budget constraint. 
+    \setcounter{enumi}{\themyCounter}
+    \item The application is expected to operate and be available for download for at least 5 years
+    without any budget constraint.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -609,15 +651,17 @@ viewpoints (VP).
 \subsection{Operational and Environmental Requirements}
 \label{sub:operational_and_environmental_requirements}
 % Begin SubSection
+\setcounter{myCounter}{0}
 
 \subsubsection{Expected Physical Environment}
 \label{ssub:expected_physical_environment}
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
-	\item The application can be used anywhere on any supported device.
+    \setcounter{enumi}{\themyCounter}
+    \item The application can be used anywhere on any supported device.
     \item The application location-based services will only be available where an internet
-    connection
-    is present.
+    connection is present.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -625,8 +669,10 @@ viewpoints (VP).
 \label{ssub:requirements_for_interfacing_with_adjacent_systems}
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
+    \setcounter{enumi}{\themyCounter}
     \item The application will interface with a mapping service, weather service and the device
     global positioning system.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -634,8 +680,10 @@ viewpoints (VP).
 \label{ssub:productization_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
+    \setcounter{enumi}{\themyCounter}
 	\item The application will be easy to install through the application store service.
 	\item The application will utilize a local database to handle data and 
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -643,7 +691,9 @@ viewpoints (VP).
 \label{ssub:release_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{OE}1. ]
+    \setcounter{enumi}{\themyCounter}
 	\item The application will be available to install through the application store service.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -652,15 +702,18 @@ viewpoints (VP).
 \subsection{Maintainability and Support Requirements}
 \label{sub:maintainability_and_support_requirements}
 % Begin SubSection
+\setcounter{myCounter}{0}
 
 \subsubsection{Maintenance Requirements}
 \label{ssub:maintenance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS}1. ]
+    \setcounter{enumi}{\themyCounter}
     \item Application updates will be pushed through the application store services, annually, to
     all devices with installed instances of the app.
     \item Any application security vulnerabilities will be patched immediately and pushed to the
     application store service.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -668,7 +721,9 @@ viewpoints (VP).
 \label{ssub:supportability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS}1. ]
+    \setcounter{enumi}{\themyCounter}
 	\item The application shall only run on supported Android devices.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -676,8 +731,10 @@ viewpoints (VP).
 \label{ssub:adaptability_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{MS}1. ]
+    \setcounter{enumi}{\themyCounter}
     \item The application shall be modular enough to make it easier for future feature additions and
     platform migrations.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -686,12 +743,15 @@ viewpoints (VP).
 \subsection{Security Requirements}
 \label{sub:security_requirements}
 % Begin SubSection
+\setcounter{myCounter}{0}
 
 \subsubsection{Access Requirements}
 \label{ssub:access_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
+    \setcounter{enumi}{\themyCounter}
 	\item The application will only be accessible to users with Android supported devices.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -699,8 +759,10 @@ viewpoints (VP).
 \label{ssub:integrity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
+    \setcounter{enumi}{\themyCounter}
     \item The application will locally encrypt and store any inputs and searches users do on their
     devices
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -708,25 +770,32 @@ viewpoints (VP).
 \label{ssub:privacy_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
+    \setcounter{enumi}{\themyCounter}
     \item The application shall encrypt all user data. Any user data including searches will be kept
     confidential.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
 \subsubsection{Audit Requirements}
 \label{ssub:audit_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{SR}1. ]
-	\item N/A
-\end{enumerate}
+N/A
+%\begin{enumerate}[{SR}1. ]
+%    \setcounter{enumi}{\themyCounter}
+%	\item N/A
+%    \setcounter{myCounter}{\theenumi}
+%\end{enumerate}
 % End SubSubSection
 
 \subsubsection{Immunity Requirements}
 \label{ssub:immunity_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
+    \setcounter{enumi}{\themyCounter}
     \item The application shall be immune to any manual attacks such as man-in-the-middle as well as
     automated attacks from trojan horses and malicious scripts.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -735,13 +804,16 @@ viewpoints (VP).
 \subsection{Cultural and Political Requirements}
 \label{sub:cultural_and_political_requirements}
 % Begin SubSection
+\setcounter{myCounter}{0}
 
 \subsubsection{Cultural Requirements}
 \label{ssub:cultural_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{CP}1. ]
+    \setcounter{enumi}{\themyCounter}
     \item The application shall display information in the regional English spelling and will remain
     religiously sensitive.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -749,7 +821,9 @@ viewpoints (VP).
 \label{ssub:political_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{CP}1. ]
+    \setcounter{enumi}{\themyCounter}
 	\item The application will be politically neutral.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -758,12 +832,15 @@ viewpoints (VP).
 \subsection{Legal Requirements}
 \label{sub:legal_requirements}
 % Begin SubSection
+\setcounter{myCounter}{0}
 
 \subsubsection{Compliance Requirements}
 \label{ssub:compliance_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR}1. ]
+    \setcounter{enumi}{\themyCounter}
 	\item The application shall comply with the regional safety and confidentiality requirements.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
@@ -771,14 +848,17 @@ viewpoints (VP).
 \label{ssub:standards_requirements}
 % Begin SubSubSection
 \begin{enumerate}[{LR}1. ]
+    \setcounter{enumi}{\themyCounter}
     \item The application shall comply with Android standards including resolution, screen size, and
-    speed limitations.
+speed limitations.
+    \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
 
 % End SubSection
 
 % End Section
+
 \newpage
 \appendix
 \section{Division of Labour}%TODO
@@ -793,17 +873,22 @@ viewpoints (VP).
 \hline
 \textbf{Contributions} & \textbf{Name} & \textbf{Signature}\\
 \hline
-Sections~\ref{sub:operational_and_environmental_requirements}-\ref{sub:cultural_and_political_requirements} 
-& Abdul Ahad & \\
+Sections
+\ref{sub:operational_and_environmental_requirements}-\ref{sub:cultural_and_political_requirements} &
+Abdul Ahad & \\
 \hline
-Section~\ref{sec:functional_requirements} & Salma Belal & \\
+Sections
+\ref{sec:functional_requirements}~\&~\ref{sub:purpose}-\ref{sub:scope} & Salma Belal & \\
 \hline
-Sections~\ref{sec:introduction}~\&
+Sections
+\ref{sec:introduction}~\&
 \ref{sub:assumptions_and_dependencies}-\ref{sub:apportioning_of_requirements} & Josh Chatten & \\
 \hline
-Sections~\ref{sub:look_and_feel_requirements}-\ref{sub:performance_requirements} & Nathanael Jordan  & \\
+Sections
+\ref{sub:look_and_feel_requirements}-\ref{sub:performance_requirements} & Nathanael Jordan  & \\
 \hline
-Sections~\ref{sub:product_perspective}-\ref{sub:constraints} & Robert Stuart & \\
+Sections
+\ref{sub:product_perspective}-\ref{sub:constraints} & Robert Stuart & \\
 \hline
 \end{tabular}
 \end{center}
