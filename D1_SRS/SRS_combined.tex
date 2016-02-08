@@ -26,9 +26,9 @@
 
 % Header and Footer
 %------------------------------------------------------------------------------
-\pagestyle{plain}  
-\renewcommand\headrulewidth{0.4pt}                                      
-\renewcommand\footrulewidth{0.4pt}                                    
+\pagestyle{plain}
+\renewcommand\headrulewidth{0.4pt}
+\renewcommand\footrulewidth{0.4pt}
 %------------------------------------------------------------------------------
 
 % Title Details
@@ -63,7 +63,7 @@ The purpose of this software requirement specification document is to provide a 
 requirements needed to design the software for controlling the ParkFinder app. This app helps users
 by providing a more efficient method for looking up parks and acquiring park information.
 \newline\newline
-The intended readers of this document include all of the project’s stakeholders. This includes the
+The intended readers of this document include all of the project's stakeholders. This includes the
 end-user, the software engineers, and the park authorities.
 % End SubSection
 
@@ -93,14 +93,7 @@ as the location, facilities, activities, and rentals that the parks provide.
 \subsection{References}%TODO
 \label{sub:references}
 % Begin SubSection
-\color{red}
-\begin{enumerate}[a)]
-	\item Provide a complete list of all documents referenced elsewhere in the SRS
-    \item Identify each document by title, report number (if applicable), date, and publishing
-    organization
-	\item Specify the sources from which the references can be obtained
-\end{enumerate}
-\color{black}
+N/A
 % End SubSection
 
 \subsection{Overview}%TODO
@@ -176,7 +169,7 @@ between this project and others, some minor functionality may not be implemented
 \label{sub:assumptions_and_dependencies}
 % Begin SubSection
 For the use external services, such as weather updates or the use of a mapping service, it is
-assumed that the user has an internet connection. These services are also assumed to provide
+assumed that the user has an Internet connection. These services are also assumed to provide
 accurate information to the user. Also assumed that the user will run the application on supported
 android device. All information acquired about each park is assumed to be correct and up to date. 
 % End SubSection
@@ -475,8 +468,6 @@ viewpoints (VP).
     \setcounter{enumi}{\themyCounter}
     \item After reading a brief description of the application, 90 percent of potential users shall
     feel that the application is trustworthy.
-	
-	
 \end{enumerate}
 % End SubSubSection
 
@@ -535,8 +526,6 @@ viewpoints (VP).
     \setcounter{enumi}{\themyCounter}
     \item Use of the application experts shall be intuitive as to what inputs these experts expect.
     \item The application shall hide its internal details from the user.
-	%\item The application shall not use provocative language
-	%\item The application shall use politically correct terminology.
     \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
@@ -545,13 +534,6 @@ viewpoints (VP).
 \label{ssub:accessibility_requirements}
 % Begin SubSubSection
 N/A
-%\begin{enumerate}[{UH}1. ]
-%    \setcounter{enumi}{\themyCounter}
-%	 \item N/A
-%    \setcounter{myCounter}{\theenumi}
-%\end{enumerate}
-% End SubSubSection
-
 % End SubSection
 
 \subsection{Performance Requirements}
@@ -598,9 +580,7 @@ N/A
 \begin{enumerate}[{PR}1. ]
     \setcounter{enumi}{\themyCounter}
     \item The application's weather service and mapping service will only be available when the
-    device has an internet connection.
-    %\item The application shall display the most up-to-date data about the parks for which the data
-    % is retrieved from.
+    device has an Internet connection.
     \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
@@ -610,7 +590,7 @@ N/A
 % Begin SubSubSection
 \begin{enumerate}[{PR}1. ]
     \setcounter{enumi}{\themyCounter}
-	\item In the event of losing internet connectivity, the user will still be able to use the application's experts. 
+	\item In the event of losing Internet connectivity, the user will still be able to use the application's experts. 
     \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
@@ -619,22 +599,12 @@ N/A
 \label{ssub:capacity_requirements}
 % Begin SubSubSection
 N/A
-%\begin{enumerate}[{PR}1. ]
-%    \setcounter{enumi}{\themyCounter}
-%	\item N/A
-%    \setcounter{myCounter}{\theenumi}
-%\end{enumerate}
 % End SubSubSection
 
 \subsubsection{Scalability or Extensibility Requirements}
 \label{ssub:scalability_or_extensibility_requirements}
 % Begin SubSubSection
 N/A
-%\begin{enumerate}[{PR}1. ]
-%	\setcounter{enumi}{\themyCounter}
-%    \item N/A
-%    \setcounter{myCounter}{\theenumi}
-%\end{enumerate}
 % End SubSubSection
 
 \subsubsection{Longevity Requirements}
@@ -661,7 +631,7 @@ N/A
 \begin{enumerate}[{OE}1. ]
     \setcounter{enumi}{\themyCounter}
 	\item The application can be used anywhere on any supported Android device.
-    \item The application location-based services will only be available where an internet
+    \item The application location-based services will only be available where an Internet
     connection is present.
     \setcounter{myCounter}{\theenumi}
 \end{enumerate}
@@ -782,11 +752,6 @@ N/A
 \label{ssub:audit_requirements}
 % Begin SubSubSection
 N/A
-%\begin{enumerate}[{SR}1. ]
-%    \setcounter{enumi}{\themyCounter}
-%	\item N/A
-%    \setcounter{myCounter}{\theenumi}
-%\end{enumerate}
 % End SubSubSection
 
 \subsubsection{Immunity Requirements}
@@ -795,7 +760,7 @@ N/A
 \begin{enumerate}[{SR}1. ]
     \setcounter{enumi}{\themyCounter}
     \item The application shall be immune to any manual attacks such as man-in-the-middle as well as
-    automated attacks from trojan horses and malicious scripts.
+    automated attacks from Trojan horses and malicious scripts.
     \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
