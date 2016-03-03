@@ -56,33 +56,39 @@ Nathanael Jordan \\ jordanen \and Robert Stuart \\ stuarr2}
 \label{sec:introduction}
 % Begin Section
 
-This section should provide an brief overview of the entire document.
+%This section should provide an brief overview of the entire document.
 
 \subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
-\begin{enumerate}[a)]
-    \item Delineate the purpose of the document
-    \item Specify the intended audience for the document
-\end{enumerate}
+
+%\begin{enumerate}[a)]
+%    \item Delineate the purpose of the document
+%    \item Specify the intended audience for the document
+%\end{enumerate}
+
 % End SubSection
 
 \subsection{System Description}
 \label{sub:system_description}
 % Begin SubSection
-\begin{enumerate}[a)]
-    \item Give a brief description of the system. This could be a paragraph or two to give some
-    context to this document.
-\end{enumerate}
+
+%\begin{enumerate}[a)]
+%    \item Give a brief description of the system. This could be a paragraph or two to give some
+%    context to this document.
+%\end{enumerate}
+
 % End SubSection
 
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-\begin{enumerate}[a)]
-    \item Describe what the rest of the document contains 
-    \item Explain how the document is organised
-\end{enumerate}
+
+%\begin{enumerate}[a)]
+%    \item Describe what the rest of the document contains 
+%    \item Explain how the document is organized
+%\end{enumerate}
+
 % End SubSection
 
 % End Section
@@ -90,52 +96,68 @@ This section should provide an brief overview of the entire document.
 \section{Use Case Diagram}
 \label{sec:use_case_diagram}
 % Begin Section
+
+%This section should provide a use case diagram for your application. 
+%\begin{enumerate}[a)]
+%    \item Each use case appearing in the diagram should be accompanied by a text description. 
+%\end{enumerate}
+
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=1.0\textwidth]{images//UseCase.pdf}}
+\centerline{\includegraphics[width=1.0\textwidth]{images//UseCase}}
 \caption{Use Case Diagram}
 \label{useCaseDiagram}
 \end{figure}
 
-
-This section should provide a use case diagram for your application. 
 \begin{enumerate}[a)]
-    \item Each use case appearing in the diagram should be accompanied by a text description. 
+    \item \textbf{Search for parks:} The user searches for parks. This is accomplished by consulting experts based on which park attributes were selected by the user.
+    \item \textbf{Browse park's listing} User browses a list of parks, this list can either be the result of a previous search action or a default list (all parks).
+    \item \textbf{Select park(s):} User selects a park or several parks from the list they were browsing, this displays addition park information to the user as well as the park(s) on a map if desired.
+    \item \textbf{Request nearest 5 parks:} User requests the five nearest parks to their current location. \textcolor{red}{should request nearest 5 parks be linked to browse park listing?}
+    \item \textbf{Swap or remove expert:} A developer attempts to swap or remove an expert from the system, the system requires authorization from a manager for the change to occur.
+    \item \textbf{Authorize expert modification:} \textcolor{red}{is this a use case? or part of the swap/remove use case?}
 \end{enumerate}
+
 % End Section
 
 \section{Analysis Class Diagram}
 \label{sec:analysis_class_diagram}
 % Begin Section
-This section should provide an analysis class diagram for your application.
-% End Section
 
+% This section should provide an analysis class diagram for your application.
+
+% End Section
 
 \section{Architectural Design}
 \label{sec:architectural_design}
 % Begin Section
-This section should provide an overview of the overall architectural design of your application. You
-overall architecture should show the division of the system into subsystems with high cohesion and
-low coupling.
+
+%This section should provide an overview of the overall architectural design of your application. You
+%overall architecture should show the division of the system into subsystems with high cohesion and
+%low coupling.
 
 \subsection{System Architecture}
 \label{sub:system_architecture}
 % Begin SubSection
-\begin{enumerate}[a)]
-    \item Identify and explain the overall architecture of your system
-    \item Be sure to clearly state the name of the architecture
-    \item Provide the reasoning and justification of the choice
-    \item Provide a structural architecture diagram showing the relationship among the subsystems
-    (if appropriate)
-\end{enumerate}
+
+%\begin{enumerate}[a)]
+%    \item Identify and explain the overall architecture of your system
+%    \item Be sure to clearly state the name of the architecture
+%    \item Provide the reasoning and justification of the choice
+%    \item Provide a structural architecture diagram showing the relationship among the subsystems
+%    (if appropriate)
+%\end{enumerate}
+
 % End SubSection
 
 \subsection{Subsystems}
 \label{sub:subsystems}
 % Begin SubSection
-\begin{enumerate}[a)]
-    \item Provide a brief description of each subsystem. Be sure to document its purpose and
-    relationship to other subsystems.
-\end{enumerate}
+
+%\begin{enumerate}[a)]
+%    \item Provide a brief description of each subsystem. Be sure to document its purpose and
+%    relationship to other subsystems.
+%\end{enumerate}
+
 % End SubSection
 
 % End Section
@@ -143,25 +165,27 @@ low coupling.
 \section{Class Responsibility Collaboration (CRC) Cards}
 \label{sec:class_responsibility_collaboration_crc_cards}
 % Begin Section
-This section should contain all of your CRC cards.
 
-\begin{enumerate}[a)]
-    \item Provide a CRC Card for each identified class
-    \item Please use the format outlined in tutorial, i.e., 
-    \begin{table}[ht]
-        \centering
-        \begin{tabular}{|p{5cm}|p{5cm}|}
-        \hline 
-        \multicolumn{2}{|l|}{\textbf{Class Name:}} \\
-        \hline
-        \textbf{Responsibility:} & \textbf{Collaborators:} \\
-        \hline
-        \vspace{1in} & \\
-        \hline
-        \end{tabular}
-    \end{table}
-    
-\end{enumerate}
+%This section should contain all of your CRC cards.
+%
+%\begin{enumerate}[a)]
+%    \item Provide a CRC Card for each identified class
+%    \item Please use the format outlined in tutorial, i.e., 
+%    \begin{table}[ht]
+%        \centering
+%        \begin{tabular}{|p{5cm}|p{5cm}|}
+%        \hline 
+%        \multicolumn{2}{|l|}{\textbf{Class Name:}} \\
+%        \hline
+%        \textbf{Responsibility:} & \textbf{Collaborators:} \\
+%        \hline
+%        \vspace{1in} & \\
+%        \hline
+%        \end{tabular}
+%    \end{table}
+%    
+%\end{enumerate}
+
 % End Section
 
 \newpage
