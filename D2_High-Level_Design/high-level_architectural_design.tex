@@ -1,4 +1,4 @@
-\documentclass[titlepage]{article}
+\documentclass[titlepage,12pt]{article}
 
 % Imported Packages
 %------------------------------------------------------------------------------
@@ -62,37 +62,44 @@ Nathanael Jordan \\ jordanen \and Robert Stuart \\ stuarr2}
 \label{sub:purpose}
 % Begin SubSection
 
+The purpose of this Design Document is to provide a description for the design of the Park Finder
+app. The description of the design will allow anyone who will be involved in the development of 
+the system to proceed with an understanding of what is to be built and how it is expected to built.
+This document provides a description of the system architecture, as well as diagrams that model the
+functionality of system, describe the key classes of the system, their interrelationship, and their
+responsibilities.
 
- The purpose of this Design Document is to provide a description for the design of the Park Finder app. The description of the design will allow anyone who will be involved in the development of the system to proceed with an understanding of what is to be built and how it is expected to built. This document provides a description of the system architecture, as well as diagrams that model the functionality of system, describe the key classes of the system, their interrelationship, and their responsibilities.\\
- \\
- The intended readers of this document include all of the project's stakeholders. This includes the end-
- user, the software engineers, and the park authorities.
-
+The intended readers of this document include all of the project's stakeholders. This includes the
+end-user, the software engineers, and the park authorities.
 
 % End SubSection
 
 \subsection{System Description}
 \label{sub:system_description}
+%Begin SubSection
 
-The software system being described in this document is called the ParkFinder app. This system will have datasets of information about parks from all over the world and will allow the client to use search methods in order to find parks based on the clients' desired attributes. The app is meant to be used anywhere in the world, provided an Android or iOS device with the app installed. This provides clients with an easier, faster, and more efficient way to look up parks and acquire information such as the location, facilities, activities, and rentals that the parks provide.
+The software system being described in this document is called the ParkFinder app. This system will
+have datasets of information about parks from all over the world and will allow the client to use
+search methods in order to find parks based on the clients' desired attributes. The app is meant to
+be used anywhere in the world, provided by an Android or iOS device with the app installed. This
+provides clients with an easier, faster, and more efficient way to look up parks and acquire
+information such as the location, facilities, activities, and rentals that the parks provide.
 
+% End SubSection
 
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
 
+The remainder of this document will contain diagrams and information that will describe the details
+for the software system being built. This will include a use case diagram in Section~
+\ref{sec:use_case_diagram}, an analysis class diagram in Section~\ref{sec:analysis_class_diagram}, a
+description of the architectural design in Section~\ref{sec:architectural_design}, and CRC cards for
+all identified classes in Section~\ref{sec:class_responsibility_collaboration_crc_cards}.
 
-The rest of this document will contain diagrams and information that will describe the details for the software system being build. This will include a use case diagram, an analysis class diagram, a description of the architectural design, and CRC cards for all identified classes. The Design Document is divided into 5 sections with various subsections. \\
-\\
- The sections of the Design Document are organized as follows:\\
- 1 Introduction\\
- 2 Use Case Diagram\\
- 3 Analysis Class Diagram\\
- 4 Architectural Design \\
- 5 Class Responsibility Collaboration Cards
+% End SubSection
 
-
-
+% End Section
 
 \section{Use Case Diagram}
 \label{sec:use_case_diagram}
@@ -104,18 +111,25 @@ The rest of this document will contain diagrams and information that will descri
 %\end{enumerate}
 
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=1.0\textwidth]{images//UseCase}}
+\centerline{\includegraphics[width=0.9\textwidth]{images//UseCase}}
 \caption{Use Case Diagram}
 \label{useCaseDiagram}
 \end{figure}
 
 \begin{enumerate}[a)]
-    \item \textbf{Search for parks:} The user searches for parks. This is accomplished by consulting experts based on which park attributes were selected by the user.
-    \item \textbf{Browse park's listing} User browses a list of parks, this list can either be the result of a previous search action or a default list (all parks).
-    \item \textbf{Select park(s):} User selects a park or several parks from the list they were browsing, this displays addition park information to the user as well as the park(s) on a map if desired.
-    \item \textbf{Request nearest 5 parks:} User requests the five nearest parks to their current location. \textcolor{red}{should request nearest 5 parks be linked to browse park listing?}
-    \item \textbf{Swap or remove expert:} A developer attempts to swap or remove an expert from the system, the system requires authorization from a manager for the change to occur.
-    \item \textbf{Authorize expert modification:} \textcolor{red}{is this a use case? or part of the swap/remove use case?}
+    \item \textbf{Search for parks:} The user searches for parks. This is accomplished by consulting
+    experts based on which park attributes were selected by the user.
+    \item \textbf{Browse park's listing} User browses a list of parks, this list can either be the
+    result of a previous search action or a default list (all parks).
+    \item \textbf{Select park(s):} User selects a park or several parks from the list they were
+    browsing, this displays addition park information to the user as well as the park(s) on a map if
+    desired.
+    \item \textbf{Request nearest 5 parks:} User requests the five nearest parks to their current
+    location. \textcolor{red}{should request nearest 5 parks be linked to browse park listing?}
+    \item \textbf{Swap or remove expert:} A developer attempts to swap or remove an expert from the
+    system, the system requires authorization from a manager for the change to occur.
+    \item \textbf{Authorize expert modification:} \textcolor{red}{is this a use case? or part of the
+    swap/remove use case?}
 \end{enumerate}
 
 % End Section
@@ -132,9 +146,9 @@ The rest of this document will contain diagrams and information that will descri
 \label{sec:architectural_design}
 % Begin Section
 
-%This section should provide an overview of the overall architectural design of your application. You
-%overall architecture should show the division of the system into subsystems with high cohesion and
-%low coupling.
+%This section should provide an overview of the overall architectural design of your application.
+%Your overall architecture should show the division of the system into subsystems with high
+%cohesion and low coupling.
 
 \subsection{System Architecture}
 \label{sub:system_architecture}
