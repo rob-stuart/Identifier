@@ -168,6 +168,14 @@ all identified classes in Section~\ref{sec:class_responsibility_collaboration_cr
 \label{sub:subsystems}
 % Begin SubSection
 
+The system will be divided into several different subsystems that are shown in the above diagram. 
+Each of these subsystems will handle different functionality of the overall system. The GUI and User subsystems will handle all interactions with the user of the application. The database will contain all
+of the information about each park in the system. The several Expert subsystems will have similiar 
+functionality but handle different information. Each Expert subsystem will be provided search criteria 
+and will return all parks which satisfy the criteria. The Weather Agent will provide the weather at any
+requested location. Lastly, ParkFinder will handle the information flow between all of the subsystems.
+ParkFinder will recieve the user search criteria from GUI then provide that information and the database to the appropriate Expert(s) in order to identify the correct park.   
+
 %\begin{enumerate}[a)]
 %    \item Provide a brief description of each subsystem. Be sure to document its purpose and
 %    relationship to other subsystems.
