@@ -51,12 +51,12 @@ chattejj \and Nathanael Jordan \\ jordanen \and Robert Stuart \\ stuarr2}
 \tableofcontents
 \clearpage
 
-\section{Introduction}%TODO
+\section{Introduction}
 \label{sec:introduction}
 % Begin Section
 
 
-\subsection{Purpose}%TODO
+\subsection{Purpose}
 \label{sub:purpose}
 % Begin SubSection
 The purpose of this software requirement specification document is to provide a description of the
@@ -67,7 +67,7 @@ The intended readers of this document include all of the project's stakeholders.
 end-user, the software engineers, and the park authorities.
 % End SubSection
 
-\subsection{Scope}%TODO
+\subsection{Scope}
 \label{sub:scope}
 % Begin SubSection
 The software product being described in this document is called the ParkFinder app. This product
@@ -78,7 +78,7 @@ clients with an easier, faster, and more efficient way to look up parks and acqu
 as the location, facilities, activities, and rentals that the parks provide.
 % End SubSection
 
-\subsection{Definitions, Acronyms, and Abbreviations}%TODO
+\subsection{Definitions, Acronyms, and Abbreviations}
 \label{sub:definitions_acronyms_and_abbreviations}
 % Begin SubSection
 \begin{description}
@@ -90,13 +90,13 @@ as the location, facilities, activities, and rentals that the parks provide.
 
 % End SubSection
 
-\subsection{References}%TODO
+\subsection{References}
 \label{sub:references}
 % Begin SubSection
 N/A
 % End SubSection
 
-\subsection{Overview}%TODO
+\subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
 The following section of this document, Overall Description, provides the reader with an overview of
@@ -111,11 +111,11 @@ for the look and feel of the system or the performance requirements.
 
 % End Section
 
-\section{Overall Description}%TODO
+\section{Overall Description}
 \label{sec:overall_description}
 % Begin Section
 
-\subsection{Product Perspective}%TODO
+\subsection{Product Perspective}
 \label{sub:product_perspective}
 % Begin SubSection
 Several web-services, such as Google or \url{www.ontarioparks. 	ca}, are available to assist with
@@ -127,45 +127,46 @@ app only requires external resources for a subset of its functionality and no ex
 depend upon the ParkFinder app, it cannot be considered to be a component of a larger system.
 % End SubSection
 
-\subsection{Product Functions}%TODO
+\subsection{Product Functions}
 \label{sub:product_functions}
 % Begin SubSection
 \begin{enumerate}[a)]
 	\item The product shall maintain a database of parks and associated attributes
     \item The app will provide a minimum of four methods for querying the park database, these
     methods	will be referred to as ``experts''
-    \item The experts must be separate from one another, and be easily swappable
     \item One expert must be able to locate parks based on location, to do so
     an on-line mapping service will need to be utilized (when an Internet connection is available)
     \item Results from a users query shall be displayed via a centralized ``forum''
-    \item Messages sent between the user and the experts shall be encrypted
+    \item \textcolor{red}{Information sent to and from the ``forum'' shall be encrypted to ensure
+    privacy}
     \item The user can select a park from the query results and the ParkFinder app shall display
     more detailed information about that park, including a weather report (when an Internet
     connection is available)
 \end{enumerate}
 % End SubSection
 
-\subsection{User Characteristics}%TODO
+\subsection{User Characteristics}
 \label{sub:user_characteristics}
 % Begin SubSection
 The intended users of the ParkFinder app are people wishing to discover new parks that they have not
 been to before as well as people completely new to visiting parks. It is expected that the primary
 users will be adults however, visiting parks can be a family affair and thus children can also
-be expected to use the ParkFinder. Thus we can expect the ParkFinder app to be used by children,
-adults, and the elderly. With such a large age range, only the most basic education levels can be
-expected. Being an app solely available on mobile devices, it can be expected that users will
-possess the bare minimum skill required to operate a mobile device. Such skills would include being
-able to select buttons, use a keyboard, and navigate menu screens.
+be expected to use the ParkFinder. \textcolor{red}{Thus we expect the ParkFinder app to be used
+by children no younger than that of a third grader (8-9 years old), adults, and the elderly. It is
+expected that users will understand English, up to a grade three level.} Being an app solely
+available on mobile devices, it can be expected that users will possess the bare minimum skill
+required to operate a mobile device. Such skills would include being able to select buttons, use a
+keyboard, and navigate menu screens.
 % End SubSection
 
-\subsection{Constraints}%TODO
+\subsection{Constraints}
 \label{sub:constraints}
 % Begin SubSection
 The primary constraint limiting the development teams options is time. Due to chaotic scheduling
 between this project and others, some minor functionality may not be implemented.
 % End SubSection
 
-\subsection{Assumptions and Dependencies}%TODO
+\subsection{Assumptions and Dependencies}
 \label{sub:assumptions_and_dependencies}
 % Begin SubSection
 For the use external services, such as weather updates or the use of a mapping service, it is
@@ -174,7 +175,7 @@ accurate information to the user. Also assumed that the user will run the applic
 android device. All information acquired about each park is assumed to be correct and up to date. 
 % End SubSection
 
-\subsection{Apportioning of Requirements}%TODO
+\subsection{Apportioning of Requirements}
 \label{sub:apportioning_of_requirements}
 % Begin SubSection
 The addition of parks from all over the world may be delayed and just parks from Ontario will be
@@ -183,7 +184,7 @@ implemented in the initial version of the system.
 
 % End Section
 
-\section{Functional Requirements}%TODO
+\section{Functional Requirements}
 \label{sec:functional_requirements}
 % Begin Section
 This section of the SRS contains all of the functional software requirements for the ParkFinder app.
@@ -207,17 +208,14 @@ viewpoints (VP).
             \begin{enumerate}
                 \item N/A
             \end{enumerate}
-        \item Geographical
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
         \item Manager
             \begin{enumerate}
                 \item The manager will be asked to give permission for the swap
             \end{enumerate}
 	\end{enumerate}
 
-	\item The user wants to search for parks by amenities that are available at the parks
+	\item \textcolor{red}{The user wants to search for parks that fit specified criteria}
+    \label{BE_combined}
     \begin{enumerate}[{VP\theenumi}.1]
         \item Developer
             \begin{enumerate}
@@ -230,125 +228,11 @@ viewpoints (VP).
             \end{enumerate}
         \item User
             \begin{enumerate}
-                \item The system shall give the user the option of selecting between various types
-                of amenities
-                \item Search results will be displayed, showing all parks that have the selected
-                amenity or amenities
-            \end{enumerate}
-        \item Geographical
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
-        \item Manager
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
-    \end{enumerate}
-
-    \item The user wants to search for parks by activities that are available at the parks
-    \begin{enumerate}[{VP\theenumi}.1]
-        \item Developer
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
-        \item Security
-            \begin{enumerate}
-                \item The system will encrypt and then decrypt the user's input
-                \item The system will encrypt and then decrypt the system's output
-            \end{enumerate}
-        \item User
-            \begin{enumerate}
-                \item The system shall give the user the option of selecting between various types
-                of activities
-                \item Search results will be displayed, showing all parks that have the selected
-                activity or activities
-            \end{enumerate}
-        \item Geographical
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
-        \item Manager
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
-    \end{enumerate}
-
-    \item The user wants to search for parks by rentals available at the parks
-    \begin{enumerate}[{VP\theenumi}.1]
-        \item Developer
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
-        \item Security
-            \begin{enumerate}
-                \item The system will encrypt and then decrypt the user's input
-                \item The system will encrypt and then decrypt the system's output
-            \end{enumerate}
-        \item User
-            \begin{enumerate}
-                \item The system shall give the user the option of selecting between various types
-                of rentals
-                \item Search results will be displayed, showing all parks that have the selected
-                rental or rentals
-            \end{enumerate}
-        \item Geographical
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
-        \item Manager
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
-    \end{enumerate}
-
-    \item The user wants to search for parks by parks size
-    \begin{enumerate}[{VP\theenumi}.1]
-        \item Developer
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
-        \item Security
-            \begin{enumerate}
-                \item The system will encrypt and then decrypt the user's input
-                \item The system will encrypt and then decrypt the system's output
-            \end{enumerate}
-        \item User
-            \begin{enumerate}
-                \item The system shall give the user the option of selecting between various ranges
-                of park sizes
-                \item Search results will be displayed, showing all parks that are within the
-                selected size range or ranges
-            \end{enumerate}
-        \item Geographical
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
-        \item Manager
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
-    \end{enumerate}
-
-    \item The user wants to search for parks by seasons when the parks are open
-    \begin{enumerate}[{VP\theenumi}.1]
-        \item Developer
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
-        \item Security
-            \begin{enumerate}
-                \item The system will encrypt and the decrypt then user's input
-                \item The system will encrypt and then decrypt the system's output
-            \end{enumerate}
-        \item User
-            \begin{enumerate}
-                \item The system shall give the user the option of selecting between various seasons
-                \item Search results will be displayed, showing all parks that are open during
-                the selected season or seasons
-            \end{enumerate}
-        \item Geographical
-            \begin{enumerate}
-                \item N/A
+                \item \textcolor{red}{The system shall enable the user to choose different types of
+                search criteria, such as: amenities, activities, rentals, park size, and seasonal
+                dates}
+                \item \textcolor{red}{Search results will be displayed, showing all parks that match
+                the chosen criteria}
             \end{enumerate}
         \item Manager
             \begin{enumerate}
@@ -376,10 +260,6 @@ viewpoints (VP).
                 amenities, activities, and rentals at the park
                 \item The system will show the current weather conditions at the park
             \end{enumerate}
-        \item Geographical
-            \begin{enumerate}
-                \item N/A
-            \end{enumerate}
         \item Manager
             \begin{enumerate}
                 \item N/A
@@ -400,10 +280,6 @@ viewpoints (VP).
         \item User
             \begin{enumerate}
                 \item The system shall display the location of the park or parks on a map
-            \end{enumerate}
-        \item Geographical
-            \begin{enumerate}
-                \item N/A
             \end{enumerate}
         \item Manager
             \begin{enumerate}
@@ -426,17 +302,11 @@ viewpoints (VP).
             \begin{enumerate}
                 \item The system will display the closest 5 parks to the user's location
             \end{enumerate}
-        \item Geographical
-            \begin{enumerate}
-                \item The system will locate the user's geographical location
-                \item The system will locate the closest 5 parks to the user's location
-            \end{enumerate}
         \item Manager
             \begin{enumerate}
                 \item N/A
             \end{enumerate}
     \end{enumerate}
-
 
 \end{enumerate}
 % End Section
@@ -721,7 +591,8 @@ N/A
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
     \setcounter{enumi}{\themyCounter}
-	\item The application will only be accessible to users with Android supported devices.
+    \item \textcolor{red}{Expert information and modification will only be accessible by system
+    administrators, such as the managers and developers.}
     \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
@@ -731,8 +602,7 @@ N/A
 % Begin SubSubSection
 \begin{enumerate}[{SR}1. ]
     \setcounter{enumi}{\themyCounter}
-    \item The application will locally encrypt and store any inputs and searches users do on their
-    devices
+    \item \textcolor{red}{The application shall prevent incorrect data from being introduced.}
     \setcounter{myCounter}{\theenumi}
 \end{enumerate}
 % End SubSubSection
@@ -785,11 +655,7 @@ N/A
 \subsubsection{Political Requirements}
 \label{ssub:political_requirements}
 % Begin SubSubSection
-\begin{enumerate}[{CP}1. ]
-    \setcounter{enumi}{\themyCounter}
-	\item The application will be politically neutral.
-    \setcounter{myCounter}{\theenumi}
-\end{enumerate}
+\textcolor{red}{N/A}
 % End SubSubSection
 
 % End SubSection
@@ -826,7 +692,7 @@ speed limitations.
 
 \newpage
 \appendix
-\section{Division of Labour}%TODO
+\section{Division of Labour}
 \label{sec:division_of_labour}
 % Begin Section
 
@@ -861,6 +727,37 @@ Sections
 \end{table}
 
 % End Section
+
+\color{red}
+\section{Change Log}
+\label{sec:change_log}
+% Begin Section
+
+\subsection{March 4, 2016 - Re-submission with Deliverable 2}
+\label{sub:d2}
+% Begin Subsection
+
+The following changes were made due to feedback from the teaching assistants:
+\begin{itemize}
+    \item \textbf{\nameref{sub:product_functions}} Experts being separate and easily swappable
+    removed
+    \item \textbf{\nameref{sub:product_functions}} Modified encryption/decryption statement to
+    remove the idea of the user communicating with the experts
+    \item \textbf{\nameref{sub:user_characteristics}} Explicitly stated the expected ages of the
+    users as well as the expected target audience language (English)
+    \item \textbf{\nameref{sec:functional_requirements}} Combined previously separated business
+    events for each Expert type into a single business event (see BE\ref{BE_combined})
+    \item \textbf{\nameref{sec:functional_requirements}} Removed the Geographical viewpoint from all
+    business events
+    \item \textbf{\nameref{ssub:access_requirements}} Corrected interpretation of the requirement
+    \item \textbf{\nameref{ssub:integrity_requirements}} Corrected interpretation of the requirement
+    \item \textbf{\nameref{ssub:political_requirements}} Removed unneeded requirement
+\end{itemize}
+
+% End Subsection
+
+% End Section
+\color{black}
 
 \end{document}
 %------------------------------------------------------------------------------
