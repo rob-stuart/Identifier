@@ -162,6 +162,10 @@ all identified classes in Section~\ref{sec:class_responsibility_collaboration_cr
 %    \item Provide a structural architecture diagram showing the relationship among the subsystems
 %    (if appropriate)
 %\end{enumerate}
+The application uses a blackboard architecture which incorporates eight independent subsystems that all interact with the blackboard, the ParkFinder application. These independent subsystems are the Location Expert, Rentals Expert, Amenities Expert, Size Expert, Seasons Expert, Activities Expert, Map Agent and Weather Agent. The blackboard includes a data store for parks and also interacts with a controller.\newline 
+
+By using the blackboard architecture style, a modularized and intuitive design is achieved by having independence between knowledge sources. This independence implies high cohesion and low coupling, allowing changes or updates to the knowledge sources with ease. 
+
 
 % End SubSection
 
