@@ -16,6 +16,7 @@
 \usepackage{array}
 \usepackage{color}
 \usepackage[hidelinks]{hyperref}
+\usepackage{float}
 %------------------------------------------------------------------------------
 
 % Custom commands
@@ -51,7 +52,6 @@ Nathanael Jordan \\ jordanen \and Robert Stuart \\ stuarr2}
 \tableofcontents
 \clearpage
 
-
 \section{Introduction}
 \label{sec:introduction}
 % Begin Section
@@ -63,8 +63,8 @@ Nathanael Jordan \\ jordanen \and Robert Stuart \\ stuarr2}
 % Begin SubSection
 
 The purpose of this Design Document is to provide a description for the design of the Park Finder
-app. The description of the design will allow anyone who will be involved in the development of 
-the system to proceed with an understanding of what is to be built and how it is expected to be built.
+app. The description of the design will allow anyone who will be involved in the development of the
+system to proceed with an understanding of what is to be built and how it is expected to be built.
 This document provides a description of the system architecture, as well as diagrams that model the
 functionality of system, describe the key classes of the system, their interrelationship, and their
 responsibilities.
@@ -105,13 +105,8 @@ all identified classes in Section~\ref{sec:class_responsibility_collaboration_cr
 \label{sec:use_case_diagram}
 % Begin Section
 
-%This section should provide a use case diagram for your application. 
-%\begin{enumerate}[a)]
-%    \item Each use case appearing in the diagram should be accompanied by a text description. 
-%\end{enumerate}
-
 \begin{figure}[htbp]
-\centerline{\includegraphics[width=0.9\textwidth]{images//UseCase}}
+\centerline{\includegraphics[width=0.99\textwidth]{images//UseCase}}
 \caption{Use Case Diagram}
 \label{useCaseDiagram}
 \end{figure}
@@ -122,26 +117,27 @@ all identified classes in Section~\ref{sec:class_responsibility_collaboration_cr
     \item \textbf{Browse park's listing} User browses a list of parks, this list can either be the
     result of a previous search action or a default list (all parks).
     \item \textbf{Select park(s):} User selects a park or several parks from the list they were
-    browsing, this displays addition park information to the user as well as the park(s) on a map if
-    desired.
+    browsing, this displays additional park information to the user as well as the park(s) on a map
+    if desired.
     \item \textbf{Request nearest 5 parks:} User requests the five nearest parks to their current
-    location. \textcolor{red}{should request nearest 5 parks be linked to browse park listing?}
+    location.
     \item \textbf{Swap or remove expert:} A developer attempts to swap or remove an expert from the
     system, the system requires authorization from a manager for the change to occur.
-    \item \textbf{Authorize expert modification:} \textcolor{red}{is this a use case? or part of the
-    swap/remove use case?}
 \end{enumerate}
 
 % End Section
 
 \section{Analysis Class Diagram}
 \label{sec:analysis_class_diagram}
-\begin{figure}[htbp]
-	\centerline{\includegraphics[width=0.9\textwidth]{images//analysis_class_diagram}}
+% Begin Section
+
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.99\textwidth]{images//analysis_class_diagram}}
 	\caption{Analysis Class Diagram}
 	\label{analysisClassDiagram}
 \end{figure}
 
+% End Section
 
 \section{Architectural Design}
 \label{sec:architectural_design}
@@ -173,18 +169,16 @@ By using the blackboard architecture style, a modularized and intuitive design i
 \label{sub:subsystems}
 % Begin SubSection
 
-The system will be divided into several different subsystems that are shown in the above diagram. 
-Each of these subsystems will handle different functionality of the overall system. The GUI and User subsystems will handle all interactions with the user of the application. The database will contain all
-of the information about each park in the system. The several Expert subsystems will have similiar 
-functionality but handle different information. Each Expert subsystem will be provided search criteria 
-and will return all parks which satisfy the criteria. The Weather Agent will provide the weather at any
-requested location. Lastly, ParkFinder will handle the information flow between all of the subsystems.
-ParkFinder will recieve the user search criteria from GUI then provide that information and the database to the appropriate Expert(s) in order to identify the correct park.   
-
-%\begin{enumerate}[a)]
-%    \item Provide a brief description of each subsystem. Be sure to document its purpose and
-%    relationship to other subsystems.
-%\end{enumerate}
+The system will be divided into several different subsystems that are shown in Figure~
+\ref{analysisClassDiagram}. Each of these subsystems will handle different functionality of the
+overall system. The GUI and User subsystems will handle all interactions with the user of the
+application. The database will contain all of the information about each park in the system. The
+several Expert subsystems will have similar functionality but handle different information. Each
+Expert subsystem will be provided search criteria and will return all parks which satisfy the
+criteria. The Weather Agent will provide the weather at any requested location. Lastly, ParkFinder
+will handle the information flow between all of the subsystems. ParkFinder will receive the user
+search criteria from GUI then provide that information and the database to the appropriate Expert(s)
+in order to identify the correct park.
 
 % End SubSection
 
