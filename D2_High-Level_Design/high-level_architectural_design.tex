@@ -160,6 +160,12 @@ all identified classes in Section~\ref{sec:class_responsibility_collaboration_cr
 %\end{enumerate}
 The application uses a blackboard architecture which incorporates eight independent subsystems that all interact with the blackboard, the ParkFinder application. These independent subsystems are the Location Expert, Rentals Expert, Amenities Expert, Size Expert, Seasons Expert, Activities Expert, Map Agent and Weather Agent. The blackboard includes a data store for parks and also interacts with a controller.\newline 
 
+\begin{figure}[H]
+	\centerline{\includegraphics[width=0.99\textwidth]{images//architecture}}
+	\caption{Structural Architecture Diagram}
+	\label{useCaseDiagram}
+\end{figure} 
+
 By using the blackboard architecture style, a modularized and intuitive design is achieved by having independence between knowledge sources. This independence implies high cohesion and low coupling, allowing changes or updates to the knowledge sources with ease. 
 
 
@@ -190,24 +196,360 @@ in order to identify the correct park.
 
 %This section should contain all of your CRC cards.
 %
-%\begin{enumerate}[a)]
-%    \item Provide a CRC Card for each identified class
-%    \item Please use the format outlined in tutorial, i.e., 
-%    \begin{table}[ht]
-%        \centering
-%        \begin{tabular}{|p{5cm}|p{5cm}|}
-%        \hline 
-%        \multicolumn{2}{|l|}{\textbf{Class Name:}} \\
-%        \hline
-%        \textbf{Responsibility:} & \textbf{Collaborators:} \\
-%        \hline
-%        \vspace{1in} & \\
-%        \hline
-%        \end{tabular}
-%    \end{table}
-%    
-%\end{enumerate}
 
+    \begin{table}[H]
+        \centering
+        \begin{tabular}{|p{5cm}|p{5cm}|}
+        \hline 
+        \multicolumn{2}{|l|}{\textbf{Class Name: Main Page}} \\
+        \hline
+        \textbf{Responsibility:} & \textbf{Collaborators:} \\
+        \hline
+        Handles click events of "Start Search" Button & GUI Controller\\
+        \hline
+        Handles click events of “View All Parks” button	&	GUI Controller\\
+        \hline
+        Handles click events of “Find Nearest 5 Parks” button & GUI Controller
+\\
+\hline        \end{tabular}
+    \end{table}
+    
+    
+ \begin{table}[H]
+ 	\centering
+ 	\begin{tabular}{|p{5cm}|p{5cm}|}
+ 		\hline 
+ 		\multicolumn{2}{|l|}{\textbf{Class Name: Search Page}} \\
+ 		\hline
+ 		\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 		\hline
+	 	Knows Search Criteria & \\ 
+	 	\hline
+	 	Knows GUI Controller &\\
+ 		\hline
+ 		Handles click events of selecting a search criterion	&	GUI Controller\\
+ 		\hline
+ 		Handles click events of the "Search" Button		&	GUI Controller\\
+ 		\hline
+ 		Handles click events of the "Back to main page" Button	&	GUI Controller\\
+ 		\hline        \end{tabular}
+ \end{table}
+ 	\begin{table}[H]
+ 		\centering
+ 		\begin{tabular}{|p{5cm}|p{5cm}|}
+ 			\hline 
+ 			\multicolumn{2}{|l|}{\textbf{Class Name:Park Listings Page}} \\
+ 			\hline
+ 			\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 			\hline
+ 			Knows GUI Controller & \\
+ 			\hline
+ 			Displays park names that are a result of the selected search criteria, or all available parks	&		GUI Controller\\
+ 			\hline
+ 			Handles click events for selecting a park 			&	GUI Controller\\
+ 			\hline
+ 			Handles click events of the “view the listed parks on a map” Button	& GUI Controller\\
+ 			\hline
+ 			Handles click events of the “Back to search page” button		& GUI Controller\\
+ 			\hline
+ 			
+ 		\end{tabular}
+ 		
+ 		
+ 		
+ 	\end{table}
+ 	
+ 		\begin{table}[H]
+ 			\centering
+ 			\begin{tabular}{|p{5cm}|p{5cm}|}
+ 				\hline 
+ 				\multicolumn{2}{|l|}{\textbf{Class Name:Park Information Page}} \\
+ 				\hline
+ 				\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 				\hline
+ 				Knows park name		&	GUI Controller\\
+ 				\hline
+ 				Displays park overview			& GUI Controller	\\
+ 				\hline
+ 				Displays park attributes		& GUI Controller \\
+ 				\hline
+ 				Handles click events for the “back to park listings page” button	&	GUI Controller\\
+ 				\hline
+ 			\end{tabular}
+ 		\end{table}
+ 		
+ 		\begin{table}[H]
+ 			\centering
+ 			\begin{tabular}{|p{5cm}|p{5cm}|}
+ 				\hline 
+ 				\multicolumn{2}{|l|}{\textbf{Class Name:GUI Controller}} \\
+ 				\hline
+ 				\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 				\hline
+ 				Knows Search Page & \\
+ 				\hline
+ 				Knows Main Page & \\
+ 				\hline
+ 				Knows Park Listings Page &\\
+ 				\hline
+				Knows Park Information Page &\\
+				\hline
+				Knows Park Finder Black Board &\\
+				\hline
+				Controls which pages are displayed to the user and when to switch from one page to another page	&	Search Page, Main Page, Park Listings Page, Park Information Page\\
+				\hline
+				Controls the parks being displayed in the park listings page &	Park Listings Page, Park Finder Black Board \\
+				\hline
+				Controls the park information being displayed in the park &	Park Information Page, Park Information Page Finder Black Board 	\\
+				\hline
+				Gives the user’s desired search criterion to the system &	Search Page, Park Finder Black Board\\
+				
+ 				\hline
+ 			\end{tabular}
+ 		\end{table}
+ 		
+ 		 			\begin{table}[H]
+ 		 				\centering
+ 		 				\begin{tabular}{|p{5cm}|p{5cm}|}
+ 		 					\hline 
+ 		 					\multicolumn{2}{|l|}{\textbf{Class Name:Park Data Set}} \\
+ 		 					\hline
+ 		 					\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 		 					\hline
+	 		 				 Knows Park  & \\
+	 		 				 \hline
+	 		 				 Knows Park Attributes & \\
+	 		 				 \hline
+	 		 				 Knows Park Overview&\\
+	 		 				 \hline
+	 		 				 Knows Park Finder Black Board&\\
+	 		 				 \hline
+	 		 				 Owns Park Attributes	& Park Attributes\\
+	 		 				 \hline
+	 		 				 Owns Park Overview	& Park Overview\\
+	 		 				 \hline
+	 		 				 Allows Park Finder Black Board to read park data 	& Park Finder Black Board \\
+ 		 					\hline
+ 		 				\end{tabular}
+ 		 			\end{table}
+ 		
+ 				\begin{table}[H]
+ 					\centering
+ 					\begin{tabular}{|p{5cm}|p{5cm}|}
+ 						\hline 
+ 						\multicolumn{2}{|l|}{\textbf{Class Name: Park Overview}} \\
+ 						\hline
+ 						\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 						\hline
+ 					    Knows Park Data Set (Owner)& \\
+ 					    \hline
+ 					    Knows Park & \\
+ 					    \hline
+ 					    Knows Park’s Overview (highlights of the
+ 					    park, the address, phone number, website, and operational
+ 					    dates) & \\
+ 					    \hline
+ 						Each park overview belongs to the owner park	& Park Data Set\\
+ 						\hline
+ 						
+ 						
+ 					\end{tabular}
+ 				\end{table}
+ 		
+ 		\begin{table}[H]
+ 			\centering
+ 			\begin{tabular}{|p{5cm}|p{5cm}|}
+ 				\hline 
+ 				\multicolumn{2}{|l|}{\textbf{Class Name:Park Attributes}} \\
+ 				\hline
+ 				\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 				\hline
+ 				Knows Park Data Set (Owner) & \\
+ 				\hline
+ 				Knows Park & \\
+ 				\hline
+ 				Knows Park’s attributes (amenities, size, seasons open, 
+ 				activities, and rentals) & \\
+ 				\hline
+ 				Each set of park attributes belongs to the owner park &	Park Data Set\\
+ 				
+ 				\hline
+ 				
+ 			\end{tabular}
+ 		\end{table}
+ 		
+ 		
+ 				\begin{table}[H]
+ 					\centering
+ 					\begin{tabular}{|p{5cm}|p{5cm}|}
+ 						\hline 
+ 						\multicolumn{2}{|l|}{\textbf{Class Name:Activities Expert}} \\
+ 						\hline
+ 						\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 						\hline
+ 						Knows Activities & \\
+ 						\hline
+ 						Knows Park Finder Black Board & \\
+ 						\hline
+ 						Uses knowledge of activities to find parks with specified activities &	Park Finder Black Board \\
+ 						\hline
+ 					\end{tabular}
+ 				\end{table}
+ 		
+ 				\begin{table}[H]
+ 					\centering
+ 					\begin{tabular}{|p{5cm}|p{5cm}|}
+ 						\hline 
+ 						\multicolumn{2}{|l|}{\textbf{Class Name:Amenities Expert}} \\
+ 						\hline
+ 						\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 						\hline
+ 						Knows Amenities & \\
+ 						\hline
+ 						Knows Park Finder Black Board & \\
+ 						\hline
+ 						Uses knowledge of amenities to find parks with specified amenities  &	Park Finder Black Board \\
+ 						\hline
+ 					\end{tabular}
+ 				\end{table}	
+ 				
+ 				
+ 				\begin{table}[H]
+ 					\centering
+ 					\begin{tabular}{|p{5cm}|p{5cm}|}
+ 						\hline 
+ 						\multicolumn{2}{|l|}{\textbf{Class Name:Rentals Expert}} \\
+ 						\hline
+ 						\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 						\hline
+ 						Knows Rentals & \\
+ 						\hline
+ 						Knows Park Finder Black Board & \\
+ 						\hline
+ 						Uses knowledge of rentals to find parks with specified rentals &	Park Finder Black Board \\
+ 						\hline
+ 					\end{tabular}
+ 				\end{table}	
+ 				
+ 				\begin{table}[H]
+ 					\centering
+ 					\begin{tabular}{|p{5cm}|p{5cm}|}
+ 						\hline 
+ 						\multicolumn{2}{|l|}{\textbf{Class Name:Size Expert}} \\
+ 						\hline
+ 						\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 						\hline
+ 						Knows Sizes & \\
+ 						\hline
+ 						Knows Park Finder Black Board & \\
+ 						\hline
+ 						Uses knowledge of sizes to find parks with specified size &	Park Finder Black Board \\
+ 						\hline
+ 					\end{tabular}
+ 				\end{table}	
+ 				
+ 				\begin{table}[H]
+ 					\centering
+ 					\begin{tabular}{|p{5cm}|p{5cm}|}
+ 						\hline 
+ 						\multicolumn{2}{|l|}{\textbf{Class Name:Location Expert}} \\
+ 						\hline
+ 						\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 						\hline
+ 						Knows Google Maps API & \\
+ 						\hline
+ 						Knows Locations & \\
+ 						\hline
+ 						Knows Park Finder Black Board & \\
+ 						\hline
+ 						Uses knowledge of locations to find nearest 5 parks &	Park Finder Black Board, Google Maps API \\
+ 						\hline
+ 					\end{tabular}
+ 				\end{table}	
+ 				
+ 				\begin{table}[H]
+ 					\centering
+ 					\begin{tabular}{|p{5cm}|p{5cm}|}
+ 						\hline 
+ 						\multicolumn{2}{|l|}{\textbf{Class Name:Seasons Expert}} \\
+ 						\hline
+ 						\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 						\hline
+ 						Knows Seasons & \\
+ 						\hline
+ 						Knows Park Finder Black Board & \\
+ 						\hline
+ 						Uses knowledge of Seasons to find parks with specified operating season & Park Finder Black Board \\
+ 						\hline
+ 					\end{tabular}
+ 				\end{table}	
+ 				
+ 				\begin{table}[H]
+ 					\centering
+ 					\begin{tabular}{|p{5cm}|p{5cm}|}
+ 						\hline 
+ 						\multicolumn{2}{|l|}{\textbf{Class Name:Weather Agent}} \\
+ 						\hline
+ 						\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 						\hline
+ 						Knows Park Location & \\
+ 						\hline
+ 						Knows Weather API & \\
+ 						\hline
+ 						Knows Park Finder Black Board & \\
+ 						\hline
+ 						Uses knowledge of Park Location to get weather at that location  &	Park Finder Black Board, Weather API \\
+ 						\hline
+ 					\end{tabular}
+ 				\end{table}	
+ 				\begin{table}[H]
+ 					\centering
+ 					\begin{tabular}{|p{5cm}|p{5cm}|}
+ 						\hline 
+ 						\multicolumn{2}{|l|}{\textbf{Class Name: 						Park Finder Black Board}} \\
+ 						\hline
+ 						\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 						\hline
+
+ 						Knows Weather Agent & \\ \hline
+ 						Knows Google Maps API & \\ \hline
+ 						Knows GUI Controller & \\ \hline
+ 						Knows Park Data Set & \\ \hline
+ 						Knows Location Expert & \\ \hline
+ 						Knows Rentals Expert & \\ \hline
+ 						Knows Amenities Expert & \\ \hline
+ 						Knows Size Expert & \\ \hline
+ 						Knows Seasons Expert & \\ \hline
+ 						Knows Activities Expert  & \\ \hline
+ 						Knows the search criterion that the user requested and &	All Experts, Search Page
+ 						tells each expert its relevant search criteria\\ \hline
+ 						Knows the results of all search requests & 	All Experts, Park Data Set\\ \hline
+ 						Sends search results and park information to the GUI	& GUI Controller, Park Data set\\ \hline
+ 						Accesses the weather agent and sends the retrieved information to the GUI	& Weather Agent, GUI Controller\\ \hline
+ 						Sends park locations to the Map Agent	& Map Agent, Park Data Set\\ \hline
+ 					\end{tabular}
+ 				\end{table}		
+ 			
+ 				\begin{table}[H]
+ 					\centering
+ 					\begin{tabular}{|p{5cm}|p{5cm}|}
+ 						\hline 
+ 						\multicolumn{2}{|l|}{\textbf{Class Name:Map Agent}} \\
+ 						\hline
+ 						\textbf{Responsibility:} & \textbf{Collaborators:} \\
+ 						\hline
+ 						Knows Park Location & \\
+ 						\hline
+ 						Knows Google Maps API & \\
+ 						\hline
+ 						Knows Park Finder Black Board & \\
+ 						\hline
+ 				Sends locations to the Google Maps API to display Parks On the Map  &	Park Finder Black Board, Google Maps API API \\
+ 						\hline
+ 					\end{tabular}
+ 				\end{table}		
+ 
+ 				
 % End Section
 
 \newpage
@@ -216,7 +558,7 @@ in order to identify the correct park.
 \label{sec:division_of_labour}
 % Begin Section
 
-\begin{table}[htbp]
+\begin{table}[H]
 \vspace{-0.06in}
 \begin{center}
 \setlength{\extrarowheight}{4.0pt}
@@ -241,30 +583,30 @@ x & Robert Stuart & \\
 
 % End Section
 
-\newpage
-\section*{IMPORTANT NOTES}
-\begin{itemize}
-%   \item You do \underline{NOT} need to provide a text explanation of each diagram; the diagram
-% should speak for itself
-    \item Please document any non-standard notations that you may have used
-    \begin{itemize}
-        \item \emph{Rule of Thumb}: if you feel there is any doubt surrounding the meaning of your
-        notations, document them
-    \end{itemize}
-    \item Some diagrams may be difficult to fit into one page
-    \begin{itemize}
-        \item It is OK if the text is small but please ensure that it is readable when printed
-        \item If you need to break a diagram onto multiple pages, please adopt a system of doing so
-        and thoroughly explain how it can be reconnected from one page to the next; if you are
-        unsure about this, please ask about it
-    \end{itemize}
-    \item Please submit the latest version of Deliverable 1 with Deliverable 2
-    \begin{itemize}
-        \item It does not have to be a freshly printed version; the latest marked version is OK
-    \end{itemize}
-    \item If you do \underline{NOT} have a Division of Labour sheet, your deliverable will
-    \underline{NOT} be marked
-\end{itemize}
+%\newpage
+%\section*{IMPORTANT NOTES}
+%\begin{itemize}
+%%   \item You do \underline{NOT} need to provide a text explanation of each diagram; the diagram
+%% should speak for itself
+%    \item Please document any non-standard notations that you may have used
+%    \begin{itemize}
+%        \item \emph{Rule of Thumb}: if you feel there is any doubt surrounding the meaning of your
+%        notations, document them
+%    \end{itemize}
+%    \item Some diagrams may be difficult to fit into one page
+%    \begin{itemize}
+%        \item It is OK if the text is small but please ensure that it is readable when printed
+%        \item If you need to break a diagram onto multiple pages, please adopt a system of doing so
+%        and thoroughly explain how it can be reconnected from one page to the next; if you are
+%        unsure about this, please ask about it
+%    \end{itemize}
+%    \item Please submit the latest version of Deliverable 1 with Deliverable 2
+%    \begin{itemize}
+%        \item It does not have to be a freshly printed version; the latest marked version is OK
+%    \end{itemize}
+%    \item If you do \underline{NOT} have a Division of Labour sheet, your deliverable will
+%    \underline{NOT} be marked
+%\end{itemize}
 
 \end{document}
 %------------------------------------------------------------------------------
