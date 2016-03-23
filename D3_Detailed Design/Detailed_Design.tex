@@ -24,8 +24,9 @@
 % Title Details
 %------------------------------------------------------------------------------
 \title{ParkFinder\\Detailed Design Document\\SE 3A04}
-\author{SE 3A04: Software Design II -- Large System Design}
-\date{}                               
+\author{Abdul Ahad \\ akhteraa \and Salma Belal \\ belalsm \and Josh Chatten \\ chattejj \and
+	Nathanael Jordan \\ jordanen \and Robert Stuart \\ stuarr2}
+\date{\today}                               
 %------------------------------------------------------------------------------
 
 % Document
@@ -33,37 +34,46 @@
 \begin{document}
 
 \maketitle	
+\thispagestyle{empty}
+\clearpage
+\setcounter{tocdepth}{2}% Only show down to subsections?
+\tableofcontents
+\clearpage
+
 
 \section{Introduction}
 \label{sec:introduction}
 % Begin Section
 
-This section should provide an brief overview of the entire document.
+This section provides an brief overview of the entire document.
 
 \subsection{Purpose}
 \label{sub:purpose}
-% Begin SubSection
-\begin{enumerate}[a)]
-	\item Delineate the purpose of the document
-	\item Specify the intended audience for the document
-\end{enumerate}
-% End SubSection
+The purpose of this Detailed Design Document is to provide a description for the detailed design of the Park Finder
+app. The description of the design will allow anyone who will be involved in the development of the
+system to proceed with an understanding of what is to be built and how it is expected to be built.
+This document provides a description of the system's classes and static structure, as well as diagrams that describe the dynamic behaviour of a system
+in response to external stimuli, and diagrams that describe the interactions among classes in terms of an exchange of messages over time.\\
+
+
+The intended readers of this document include all of the project's stakeholders. This includes the
+end-user, the software engineers, and the park authorities.
 
 \subsection{System Description}
 \label{sub:system_description}
-% Begin SubSection
-\begin{enumerate}[a)]
-	\item Give a brief description of the system. This could be a paragraph or two to give some context to this document.
-\end{enumerate}
-% End SubSection
+The software system being described in this document is called the ParkFinder app. This system will
+have datasets of information about parks from all over the world and will allow the client to use
+search methods in order to find parks based on the clients' desired attributes. The app is meant to
+be used anywhere in the world, provided an Android or iOS device with the app installed. This
+provides clients with an easier, faster, and more efficient way to look up parks and acquire
+information such as the location, facilities, activities, and rentals that the parks provide.
 
 \subsection{Overview}
 \label{sub:overview}
 % Begin SubSection
-\begin{enumerate}[a)]
-	\item Describe what the rest of the document contains 
-	\item Explain how the document is organised
-\end{enumerate}
+The remainder of this document will contain diagrams and information that will describe the details
+for the software system being built. This will include State Charts for controller classes in Section~
+\ref{sec:state_charts_for_controller_classes}, Sequence Diagrams in Section~\ref{sec:sequence_diagrams}, and a Detailed Class Diagram in Section~\ref{sec:detailed_class_diagram}.
 
 % End SubSection
 
