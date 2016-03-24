@@ -1,4 +1,4 @@
-\documentclass[]{article}
+\documentclass[titlepage,12pt]{article}
 
 % Imported Packages
 %------------------------------------------------------------------------------
@@ -12,6 +12,11 @@
 \usepackage{graphicx}
 \usepackage{extarrows}
 \usepackage{setspace}
+
+\usepackage{array}
+\usepackage{color}
+\usepackage[hidelinks]{hyperref}
+\usepackage{float}
 %------------------------------------------------------------------------------
 
 % Header and Footer
@@ -49,12 +54,13 @@ This section provides an brief overview of the entire document.
 
 \subsection{Purpose}
 \label{sub:purpose}
-The purpose of this Detailed Design Document is to provide a description for the detailed design of the Park Finder
-app. The description of the design will allow anyone who will be involved in the development of the
-system to proceed with an understanding of what is to be built and how it is expected to be built.
-This document provides a description of the system's classes and static structure, as well as diagrams that describe the dynamic behaviour of a system
-in response to external stimuli, and diagrams that describe the interactions among classes in terms of an exchange of messages over time.\\
-
+The purpose of this Detailed Design Document is to provide a description for the detailed design of
+the ParkFinder app. The description of the design will allow anyone who will be involved in the
+development of the system to proceed with an understanding of what is to be built and how it is
+expected to be built. This document provides a description of the system's classes and static
+structure, as well as diagrams that describe the dynamic behaviour of a system in response to
+external stimuli, and diagrams that describe the interactions among classes in terms of an exchange
+of messages over time.\\
 
 The intended readers of this document include all of the project's stakeholders. This includes the
 end-user, the software engineers, and the park authorities.
@@ -72,8 +78,9 @@ information such as the location, facilities, activities, and rentals that the p
 \label{sub:overview}
 % Begin SubSection
 The remainder of this document will contain diagrams and information that will describe the details
-for the software system being built. This will include State Charts for controller classes in Section~
-\ref{sec:state_charts_for_controller_classes}, Sequence Diagrams in Section~\ref{sec:sequence_diagrams}, and a Detailed Class Diagram in Section~\ref{sec:detailed_class_diagram}.
+for the software system being built. This will include State Charts for controller classes in
+Section~\ref{sec:state_charts_for_controller_classes}, Sequence Diagrams in Section~\ref
+{sec:sequence_diagrams}, and a Detailed Class Diagram in Section~\ref{sec:detailed_class_diagram}.
 
 % End SubSection
 
@@ -83,45 +90,94 @@ for the software system being built. This will include State Charts for controll
 \label{sec:state_charts_for_controller_classes}
 % Begin Section
 This section should provide a state chart for each controller class for your application.
+
+% \begin{figure}[H]
+%     \centerline{\includegraphics[width=0.90\textwidth]{diagrams/PDF/a_file_name}}
+%     \caption{A Caption}
+%     \label{a_label}
+% \end{figure}
+
 % End Section
 
 \section{Sequence Diagrams}
 \label{sec:sequence_diagrams}
 % Begin Section
 This section should provide a sequence diagram for each use case of your application.
+
+% \begin{figure}[H]
+%     \centerline{\includegraphics[width=0.90\textwidth]{diagrams/PDF/a_file_name}}
+%     \caption{A Caption}
+%     \label{a_label}
+% \end{figure}
+
 % End Section
 
 \section{Detailed Class Diagram}
 \label{sec:detailed_class_diagram}
 % Begin Section
 This section should provide a detailed class diagram for your application.
+
+% \begin{figure}[H]
+%     \centerline{\includegraphics[width=0.90\textwidth]{diagrams/PDF/a_file_name}}
+%     \caption{A Caption}
+%     \label{a_label}
+% \end{figure}
+
 % End Section
 
 \appendix
 \section{Division of Labour}
 \label{sec:division_of_labour}
 % Begin Section
-Include a Division of Labour sheet which indicates the contributions of each team member. This sheet must be signed by all team members.
+
+\begin{table}[H]
+\vspace{-0.06in}
+\begin{center}
+\setlength{\extrarowheight}{4.0pt}
+\begin{tabular}{m{0.3\textwidth} m{0.2\textwidth} m{0.3\textwidth}} 
+\hline
+\textbf{Contributions} & \textbf{Name} & \textbf{Signature}\\
+\hline
+Section~\ref{sec:sequence_diagrams} & Abdul Ahad & \\
+\hline
+Section~\ref{sec:introduction} & Salma Belal & \\
+\hline
+Section~\ref{sec:state_charts_for_controller_classes} & Josh Chatten & \\
+\hline
+Section~\ref{sec:state_charts_for_controller_classes} & Nathanael Jordan  & \\
+\hline
+Section~\ref{sec:detailed_class_diagram} & Robert Stuart & \\
+\hline
+\end{tabular}
+\end{center}
+\label{divOfLabour}
+\end{table}
+
 % End Section
 
 \newpage
 \section*{IMPORTANT NOTES}
 \begin{itemize}
-	\item You do \underline{NOT} need to provide a text explanation of each diagram; the diagram should speak for itself
-	\item Please document any non-standard notations that you may have used
+    \item You do \underline{NOT} need to provide a text explanation of each diagram; the diagram
+    should speak for itself 
+    \item Please document any non-standard notations that you may have used
 	\begin{itemize}
-		\item \emph{Rule of Thumb}: if you feel there is any doubt surrounding the meaning of your notations, document them
+        \item \emph{Rule of Thumb}: if you feel there is any doubt surrounding the meaning of your
+        notations, document them
 	\end{itemize}
-	\item Some diagrams may be difficult to fit into one page
+    \item Some diagrams may be difficult to fit into one page
 	\begin{itemize}
-		\item It is OK if the text is small but please ensure that it is readable when printed
-		\item If you need to break a diagram onto multiple pages, please adopt a system of doing so and throughly explain how it can be reconnected from one page to the next; if you are unsure about this, please ask me
+        \item It is OK if the text is small but please ensure that it is readable when printed
+        \item If you need to break a diagram onto multiple pages, please adopt a system of doing so
+        and throughly explain how it can be reconnected from one page to the next; if you are unsure
+        about this, please ask me
 	\end{itemize}
-	\item Please submit the latest version of Deliverable 1 and Deliverable 2 with Deliverable 3
+    \item Please submit the latest version of Deliverable 1 and Deliverable 2 with Deliverable 3
 	\begin{itemize}
-		\item They do not have to be a freshly printed versions; the latest marked versions are OK
+        \item They do not have to be a freshly printed versions; the latest marked versions are OK
 	\end{itemize}
-	\item If you do \underline{NOT} have a Division of Labour sheet, your deliverable will \underline{NOT} be marked
+    \item If you do \underline{NOT} have a Division of Labour sheet, your deliverable will
+    \underline{NOT} be marked
 \end{itemize}
 
 
