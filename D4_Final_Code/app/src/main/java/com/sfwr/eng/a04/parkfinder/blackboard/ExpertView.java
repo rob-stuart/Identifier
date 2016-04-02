@@ -1,4 +1,4 @@
-package com.a04.parkfinder.blackboard;
+package com.sfwr.eng.a04.parkfinder.blackboard;
 
 import android.view.View;
 import android.view.ViewGroup;
