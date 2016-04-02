@@ -1,23 +1,22 @@
 package com.sfwr.eng.a04.parkfinder.parks;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-/**
- * Created by robert on 01-Apr-16.
- */
 public class Park {
     private final String name;
     private final double size;
-    private final Location loc;
+    private final LatLng loc;
     private final Pair<Date, Date> openDateRange;
     private final String URL;
     private final List<Pair<String, String>> campTypes;
     private final List<Pair<String, String>> activityTypes;
     private final List<Pair<String, String>> facilityTypes;
 
-    public Park(String name, double size, Location loc, Pair<Date, Date> openDateRange, String URL) {
+    public Park(String name, double size, LatLng loc, Pair<Date, Date> openDateRange, String URL) {
         this.name = name;
         this.size = size;
         this.loc = loc;
@@ -66,7 +65,7 @@ public class Park {
         return size;
     }
 
-    public Location getLoc() {
+    public LatLng getLoc() {
         return loc;
     }
 

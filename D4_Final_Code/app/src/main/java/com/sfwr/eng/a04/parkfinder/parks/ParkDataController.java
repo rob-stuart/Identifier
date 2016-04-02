@@ -2,6 +2,7 @@ package com.sfwr.eng.a04.parkfinder.parks;
 
 import android.content.Context;
 
+import com.google.android.gms.maps.model.LatLng;
 import com.sfwr.eng.a04.parkfinder.R;
 
 import org.w3c.dom.Document;
@@ -27,7 +28,7 @@ public class ParkDataController {
 
     public ParkDataController(Context context) {
         //TODO initialize parkSet
-        createParkSet(decryptFile(context.getResources().openRawResource(R.raw.ParkData)));
+        createParkSet(decryptFile(context.getResources().openRawResource(R.raw.park_data)));
 
         // int i = 1;
         // for (Park foo : parkSet) {// test that they were made by printing their names
@@ -37,7 +38,7 @@ public class ParkDataController {
     }
 
     public Set<Park> getParkSet() {
-        return (HashSet) parkSet.clone();
+        return (HashSet<Park>) parkSet.clone();
     }
 
     private void createParkSet(InputStream in) {
@@ -99,8 +100,8 @@ public class ParkDataController {
                 String parkURL = URLNode.getFirstChild().getNodeValue();
                 // System.out.println(parkURL);
 
-                Park park = new Park(parkName, parkSize, new Location(parkLatitude, parkLongitude),
-                        new Pair<Date, Date>(openDate, closeDate), parkURL);
+                Park park = new Park(parkName, parkSize, new LatLng(parkLatitude, parkLongitude),
+                        new Pair<>(openDate, closeDate), parkURL);
 
                 NodeList camps = parkAttributes.item(11).getChildNodes();
                 NodeList campAttributes;
