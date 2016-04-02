@@ -1,9 +1,9 @@
-package com.a04.parkfinder.blackboard;
+package com.sfwr.eng.a04.parkfinder.blackboard;
 
 import android.view.View;
 
-import com.a04.parkfinder.parks.Location;
-import com.a04.parkfinder.parks.Park;
+import com.sfwr.eng.a04.parkfinder.parks.Location;
+import com.sfwr.eng.a04.parkfinder.parks.Park;
 
 import java.util.Set;
 

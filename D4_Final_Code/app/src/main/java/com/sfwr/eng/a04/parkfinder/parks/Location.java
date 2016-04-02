@@ -1,4 +1,4 @@
-package com.a04.parkfinder.parks;
+package com.sfwr.eng.a04.parkfinder.parks;
 
 /**
  * Created by robert on 01-Apr-16.
