@@ -1,9 +1,0 @@
-<resources>
-    <string name="app_name">ParkFinder</string>
-    <string name="action_settings">Settings</string>
-    <string name="title_activity_park_info">ParkInfoActivity</string>
-    <string name="title_activity_park_listings">ParkListingsActivity</string>
-    <string name="title_activity_search">SearchActivity</string>
-    <string name="title_activity_weather_agent">WeatherAgentActivity</string>
-    <string name="title_activity_map_agent">Map</string>
-</resources>
