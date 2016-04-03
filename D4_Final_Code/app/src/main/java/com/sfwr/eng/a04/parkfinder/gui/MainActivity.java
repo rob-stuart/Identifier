@@ -1,5 +1,5 @@
 package com.sfwr.eng.a04.parkfinder.gui;
-
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -51,4 +51,23 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void onSearchParksClick(View view) {
+
+        Intent SearchScreenIntent = new Intent(this,SearchActivity.class);
+        final int result = 1;
+        SearchScreenIntent.putExtra("callingActivity","MainPage");
+        startActivityForResult(SearchScreenIntent, result);
+
+    }
+
+    /*public void onViewAllParksClick(View view) {
+            //TODO get back to this later
+            Intent getNameScreenIntent = new Intent(this,SecondScreen.class);
+            final int result = 1;
+            getNameScreenIntent.putExtra("callingActivity","MainActivity");
+            startActivityForResult(getNameScreenIntent, result);
+
+    }*/
 }
+
