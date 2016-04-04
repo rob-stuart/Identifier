@@ -204,4 +204,14 @@
         android:layout_below="@+id/checkBox15"
         android:layout_centerHorizontal="true" />
 
+    <Button
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Search"
+        android:id="@+id/BSearch"
+        android:layout_below="@+id/checkBox15"
+        android:layout_toRightOf="@+id/checkBox15"
+        android:layout_toEndOf="@+id/checkBox15" />
+
 </RelativeLayout>
