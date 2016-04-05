@@ -15,8 +15,8 @@ import java.util.Set;
 
 
 public class ActivitiesExpert extends Expert {
-    private static final String TAG = "MINE== ActivitiesExpert";
-    private static final String name = "Activities";
+    private static final String TAG = "MINE== Activities";
+    public static final String name = "Activities";
     private static HashMap<String, Boolean> criteria = null;
 
     ActivitiesExpert(Set<Park> allParks) {
@@ -34,6 +34,12 @@ public class ActivitiesExpert extends Expert {
 
     @Override
     public void getMatchingParks(Set<Park> parkSet) {
+        for (String foo : criteria.keySet()) {
+            if (criteria.get(foo)) {
+                Log.d(TAG, foo);
+            }
+        }
+
         if (isCriteriaSet()) {
             Set<String> selected = new HashSet<>(criteria.size());
             for (String activity : criteria.keySet()) {
@@ -41,11 +47,13 @@ public class ActivitiesExpert extends Expert {
                     selected.add(activity);
                 }
             }
-            for (Park park : parkSet) {
+            HashSet<Park> temp = new HashSet<>(parkSet);
+            for (Park park : temp) {
                 if (!park.getActivityTypes().containsAll(selected)) {
                     parkSet.remove(park);
                 }
             }
+
         }
     }
 

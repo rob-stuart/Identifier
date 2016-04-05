@@ -6,7 +6,7 @@ import com.sfwr.eng.a04.parkfinder.parks.Park;
 import java.util.Set;
 
 class LocationExpert extends Expert {
-    private String name = "Location";
+    public String name = "Location";
     private LatLng loc;
     private double distanceTo;
     private int numParks;

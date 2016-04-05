@@ -11,7 +11,7 @@ import java.util.Set;
 
 public class SizeExpert extends Expert {
     private static final String TAG = "MINE== ActivitiesExpert";
-    private static final String name = "Size";
+    public static final String name = "Size";
     private static int op = R.id.less_than;
     private static double small, large;
     private static boolean isCriteriaSet = false;

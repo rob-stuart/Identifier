@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Set;
 
 class SeasonalExpert extends Expert {
-    private String name = "Seasons";
+    public String name = "Seasons";
     private Date date;
 
 

@@ -2,23 +2,24 @@ package com.sfwr.eng.a04.parkfinder.parks;
 
 import com.google.android.gms.maps.model.LatLng;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-public class Park {
+public class Park implements Serializable {
     private final String name;
     private final double size;
-    private final LatLng loc;
+    private final Location loc;
     private final Pair<Date, Date> openDateRange;
     private final String URL;
     private final List<Pair<String, String>> campTypes;
     private final List<Pair<String, String>> activityTypes;
     private final List<Pair<String, String>> facilityTypes;
 
-    Park(String name, double size, LatLng loc, Pair<Date, Date> openDateRange, String URL) {
+    Park(String name, double size, Location loc, Pair<Date, Date> openDateRange, String URL) {
         this.name = name;
         this.size = size;
         this.loc = loc;
@@ -64,7 +65,7 @@ public class Park {
         return size;
     }
 
-    public LatLng getLoc() {
+    public Location getLoc() {
         return loc;
     }
 

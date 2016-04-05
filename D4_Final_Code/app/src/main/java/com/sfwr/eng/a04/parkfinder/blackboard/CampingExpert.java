@@ -16,7 +16,7 @@ import java.util.Set;
 
 public class CampingExpert extends Expert {
     private static final String TAG = "MINE== CampingExpert";
-    private static final String name = "Camping";
+    public static final String name = "Camping";
     private static HashMap<String, Boolean> criteria = null;
 
     CampingExpert(Set<Park> allParks) {
@@ -34,6 +34,11 @@ public class CampingExpert extends Expert {
 
     @Override
     public void getMatchingParks(Set<Park> parkSet) {
+        for (String foo : criteria.keySet()) {
+            if (criteria.get(foo)) {
+                Log.d(TAG, foo);
+            }
+        }
         if (isCriteriaSet()) {
             Set<String> selected = new HashSet<>(criteria.size());
             for (String camp : criteria.keySet()) {
@@ -41,11 +46,13 @@ public class CampingExpert extends Expert {
                     selected.add(camp);
                 }
             }
-            for (Park park : parkSet) {
-                if (!park.getFacilityType().containsAll(selected)) {
+            HashSet<Park> temp = new HashSet<>(parkSet);
+            for (Park park : temp) {
+                if (!park.getCampTypes().containsAll(selected)) {
                     parkSet.remove(park);
                 }
             }
+
         }
     }
 

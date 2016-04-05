@@ -13,4 +13,7 @@
     <string name="less_than">Less Than</string>
     <string name="greater_than">Greater Than</string>
     <string name="search">Search</string>
+    <string name="search_again">Search</string>
+    <string name="startSearch">Search for parks</string>
+    <string name="title_activity_maps">Map</string>
 </resources>

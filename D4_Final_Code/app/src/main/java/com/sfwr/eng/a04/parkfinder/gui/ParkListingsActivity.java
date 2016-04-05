@@ -1,31 +1,47 @@
 package com.sfwr.eng.a04.parkfinder.gui;
 
-import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.content.Intent;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
+import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.Button;
+import android.widget.LinearLayout;
 
 import com.sfwr.eng.a04.parkfinder.R;
+import com.sfwr.eng.a04.parkfinder.blackboard.BlackBoard;
+import com.sfwr.eng.a04.parkfinder.parks.Park;
 
 public class ParkListingsActivity extends AppCompatActivity {
+    private final static String TAG = "MINE== listings";
+    private BlackBoard blackBoard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_park_listings);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        blackBoard = (BlackBoard) getIntent().getSerializableExtra("blackboard");
+        LinearLayout layout = (LinearLayout) findViewById(R.id.content_vertical);
+        Button but;
+        for (final Park park : blackBoard.getMatchingParks()) {
+            but = new Button(this);
+            but.setText(park.getName());
+            but.setTextColor(ContextCompat.getColor(this, R.color.expertClickable));
+            but.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Button button = (Button) v;
+                    Intent intent = new Intent(ParkListingsActivity.this, ParkInfoActivity.class);
+                    Log.d(TAG,"before intent");
+                    intent.putExtra("park", park);
+                    Log.d(TAG, "before intent");
+                    startActivity(intent);
+                }
+            });
+            layout.addView(but);
+        }
+
     }
-
 }

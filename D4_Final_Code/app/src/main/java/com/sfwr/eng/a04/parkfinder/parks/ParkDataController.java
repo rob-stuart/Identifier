@@ -41,11 +41,6 @@ public class ParkDataController implements Serializable {
         //createParkSet(decryptFile(context.getResources().openRawResource(R.raw.my_test_file)));
         createParkSet(context.getResources().openRawResource(R.raw.park_data));
 
-//        int i = 1;
-//        for (Park foo : parkSet) {// park_data that they were made by printing their names
-//            Log.d(TAG, i++ + "\t" + foo);
-//        }
-
     }
 
     public Set<Park> getParkSet() {
@@ -111,7 +106,7 @@ public class ParkDataController implements Serializable {
                 String parkURL = URLNode.getFirstChild().getNodeValue();
                 // System.out.println(parkURL);
 
-                Park park = new Park(parkName, parkSize, new LatLng(parkLatitude, parkLongitude),
+                Park park = new Park(parkName, parkSize, new Location(parkLatitude, parkLongitude),
                         new Pair<>(openDate, closeDate), parkURL);
 
                 NodeList camps = parkAttributes.item(11).getChildNodes();

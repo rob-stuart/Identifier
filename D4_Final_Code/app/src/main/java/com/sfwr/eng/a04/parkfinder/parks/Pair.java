@@ -1,7 +1,9 @@
 package com.sfwr.eng.a04.parkfinder.parks;
 
 
-public class Pair<T, G> {
+import java.io.Serializable;
+
+public class Pair<T, G> implements Serializable {
     private final T item1;
     private final G item2;
 

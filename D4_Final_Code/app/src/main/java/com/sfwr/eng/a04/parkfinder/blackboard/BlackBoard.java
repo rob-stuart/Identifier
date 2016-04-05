@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.util.Log;
 
+import com.sfwr.eng.a04.parkfinder.gui.SearchActivity;
 import com.sfwr.eng.a04.parkfinder.parks.Park;
 import com.sfwr.eng.a04.parkfinder.parks.ParkDataController;
 
@@ -21,7 +22,7 @@ public class BlackBoard implements Serializable {
         parkData = new ParkDataController(context);
         availableExperts = new HashSet<>();
         availableExperts.add(new ActivitiesExpert(parkData.getParkSet()));
-//         availableExperts.add(new CampingExpert(parkData.getParkSet()));
+        availableExperts.add(new CampingExpert(parkData.getParkSet()));
         availableExperts.add(new FacilitiesExpert(parkData.getParkSet()));
 //         availableExperts.add(new LocationExpert());
 //         availableExperts.add(new SeasonalExpert());
@@ -38,22 +39,18 @@ public class BlackBoard implements Serializable {
     }
 
     public void useExpert(Context context, String name) {
-        Log.d(TAG, "here_1");
-        //assert (name != null);
-        Log.d(TAG, "here_2");
         for (Expert expert : availableExperts) {
-            Log.d(TAG, "loop: " + expert.getName());
             if (name.equals(expert.getName())) {
-                Log.d(TAG, expert.getName() + " inside if_1");
                 Intent intent = new Intent(context, expert.getClass());
-                Log.d(TAG, expert.getName() + " inside if_2");
                 context.startActivity(intent);
+
             }
         }
     }
 
     public Set<Park> getMatchingParks() {
         Set<Park> allParks = parkData.getParkSet();
+
         Set<Park> parkSet;
         for (Expert expert : availableExperts) {
             if (expert.isCriteriaSet()) {
@@ -62,6 +59,7 @@ public class BlackBoard implements Serializable {
                 allParks.retainAll(parkSet);
             }
         }
+
         return allParks;
     }
 

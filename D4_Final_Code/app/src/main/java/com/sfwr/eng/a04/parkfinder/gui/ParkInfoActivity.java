@@ -1,23 +1,31 @@
 package com.sfwr.eng.a04.parkfinder.gui;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 
 import com.sfwr.eng.a04.parkfinder.R;
+import com.sfwr.eng.a04.parkfinder.parks.Park;
 
 public class ParkInfoActivity extends AppCompatActivity {
+    private final static String TAG = "MINE== info";
+    private Park park;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_park_info);
+        Log.d(TAG, "info created");
+        park = (Park) getIntent().getSerializableExtra("park");
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
+        Log.d("FINAL", "here");
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -26,6 +34,13 @@ public class ParkInfoActivity extends AppCompatActivity {
                         .setAction("Action", null).show();
             }
         });
+    }
+
+    public void onViewMapClick(View view) {
+        Intent intent = new Intent(this, MapsActivity.class);
+        intent.putExtra("park", park);
+        startActivity(intent);
+
     }
 
 }

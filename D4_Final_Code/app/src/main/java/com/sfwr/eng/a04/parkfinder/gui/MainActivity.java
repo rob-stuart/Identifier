@@ -14,6 +14,8 @@ import android.view.View;
 import com.sfwr.eng.a04.parkfinder.R;
 import com.sfwr.eng.a04.parkfinder.blackboard.BlackBoard;
 
+import java.util.HashSet;
+
 public class MainActivity extends AppCompatActivity {
     private static final String TAG = "MINE== mainactivity";
     private BlackBoard blackBoard;
@@ -23,6 +25,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         blackBoard = new BlackBoard(this);
+
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -59,10 +62,11 @@ public class MainActivity extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public void onSearchParksClick(View view) {
+    public void onStartSearch(View view) {
         Log.d(TAG, "clicked_1");
         Intent intent = new Intent(this, SearchActivity.class);
         intent.putExtra("blackboard", blackBoard);
+        Log.d(TAG, "clicked_2");
         startActivity(intent);
     }
 
