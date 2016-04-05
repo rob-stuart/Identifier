@@ -1,6 +1,7 @@
 package com.sfwr.eng.a04.parkfinder.parks;
 
 import android.content.Context;
+import android.util.Log;
 
 import com.google.android.gms.maps.model.LatLng;
 import com.sfwr.eng.a04.parkfinder.R;
@@ -11,39 +12,49 @@ import org.w3c.dom.NodeList;
 
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.Serializable;
+import java.security.Key;
 import java.security.SecureRandom;
 import java.text.SimpleDateFormat;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.crypto.Cipher;
 import javax.crypto.CipherInputStream;
+import javax.crypto.CipherOutputStream;
 import javax.crypto.KeyGenerator;
 import javax.crypto.spec.IvParameterSpec;
 import javax.xml.parsers.DocumentBuilderFactory;
 
-public class ParkDataController {
-    private HashSet<Park> parkSet = null;
+public class ParkDataController implements Serializable {
+    private static final String TAG = "MINE== ParkData";
+    private HashSet<Park> parkSet;
 
     public ParkDataController(Context context) {
         //TODO initialize parkSet
-        createParkSet(decryptFile(context.getResources().openRawResource(R.raw.park_data)));
+        Log.d(TAG, "init data");
 
-        // int i = 1;
-        // for (Park foo : parkSet) {// test that they were made by printing their names
-        // System.out.println(i++ + "\t" + foo);
-        // }
+        //createParkSet(decryptFile(context.getResources().openRawResource(R.raw.park_data_encrypted)));
+        //createParkSet(decryptFile(context.getResources().openRawResource(R.raw.my_test_file)));
+        createParkSet(context.getResources().openRawResource(R.raw.park_data));
+
+//        int i = 1;
+//        for (Park foo : parkSet) {// park_data that they were made by printing their names
+//            Log.d(TAG, i++ + "\t" + foo);
+//        }
 
     }
 
     public Set<Park> getParkSet() {
-        return (HashSet<Park>) parkSet.clone();
+        return new HashSet<>(parkSet);
     }
 
     private void createParkSet(InputStream in) {
         SimpleDateFormat dateFormat = new SimpleDateFormat("MMMM dd, yyyy");
-        parkSet = new HashSet<Park>(20);
+        parkSet = new HashSet<>(20);
         try {
             Document doc = DocumentBuilderFactory.newInstance().newDocumentBuilder().parse(in);
             NodeList parkList = doc.getFirstChild().getChildNodes();
@@ -193,6 +204,32 @@ public class ParkDataController {
             e.printStackTrace();
         }
         return bin;
+    }
+
+    private void encryptFile(InputStream is, OutputStream os) {
+        byte[] iv = {58, 0, 107, -82, -128, 63, -96, -105, 46, 93, 16, 40, -84, 91, 56, -37};
+        String algo = "AES", encoding = "UTF-8";
+        try {
+            KeyGenerator keyGenerator = KeyGenerator.getInstance(algo);
+            keyGenerator.init(new SecureRandom("nobodyCanBreakThisKey".getBytes(encoding)));
+            Key key = keyGenerator.generateKey();
+            Cipher cipher = Cipher.getInstance(algo + "/CBC/NoPadding");
+            cipher.init(Cipher.ENCRYPT_MODE, key, new IvParameterSpec(iv));
+
+            CipherOutputStream out = new CipherOutputStream(os, cipher);
+            byte[] buffer = new byte[1024];
+            int r;
+            while ((r = is.read(buffer)) >= 0) {
+                if (r < buffer.length) {
+                    Arrays.fill(buffer, r, buffer.length, (byte) 0);
+                }
+                out.write(buffer);
+            }
+            is.close();
+            out.close();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

@@ -1,14 +1,18 @@
 package com.sfwr.eng.a04.parkfinder.blackboard;
 
+import android.app.Activity;
+
 import com.sfwr.eng.a04.parkfinder.parks.Park;
 
 import java.util.Set;
 
-interface Expert extends ExpertView {
+abstract class Expert extends Activity {
+    private String name;
 
-    void getMatchingParks(Set<Park> parkSet);
+    abstract void getMatchingParks(Set<Park> parkSet);
 
-    boolean isCriteriaSet();
+    abstract boolean isCriteriaSet();
 
-    String getName();
+    abstract String getName();
+
 }

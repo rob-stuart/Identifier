@@ -36,11 +36,6 @@
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
         <activity
-            android:name=".gui.SearchActivity"
-            android:label="@string/title_activity_search"
-            android:theme="@style/AppTheme.NoActionBar">
-        </activity>
-        <activity
             android:name=".gui.WeatherAgentActivity"
             android:label="@string/title_activity_weather_agent"
             android:parentActivityName=".gui.ParkInfoActivity"
@@ -49,6 +44,31 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.sfwr.eng.a04.parkfinder.gui.ParkInfoActivity"/>
         </activity>
+        <activity
+            android:name=".blackboard.ActivitiesExpert"
+            android:label="ActivitiesExpertActivity"
+            android:parentActivityName=".gui.SearchActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".blackboard.CampingExpert"
+            android:label="CampingExpertActivity"
+            android:parentActivityName=".gui.SearchActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".blackboard.FacilitiesExpert"
+            android:label="FacilitiesExpertActivity"
+            android:parentActivityName=".gui.SearchActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+        <activity
+            android:name=".blackboard.SizeExpert"
+            android:label="SizeExpertActivity"
+            android:parentActivityName=".gui.SearchActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
+
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
@@ -61,9 +81,7 @@
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key"/>
 
-        <activity
-            android:name=".gui.MapAgentActivity"
-            android:label="@string/title_activity_map_agent">
+        <activity android:name=".gui.SearchActivity">
         </activity>
     </application>
 

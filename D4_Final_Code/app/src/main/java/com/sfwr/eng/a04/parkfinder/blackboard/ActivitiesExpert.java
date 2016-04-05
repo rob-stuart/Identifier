@@ -1,63 +1,89 @@
 package com.sfwr.eng.a04.parkfinder.blackboard;
 
+import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 
-import com.sfwr.eng.a04.parkfinder.parks.Pair;
+import com.sfwr.eng.a04.parkfinder.R;
 import com.sfwr.eng.a04.parkfinder.parks.Park;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
 
-class ActivitiesExpert implements Expert {
-    private String name = "Activities";
-    private Set<String> activities;
+public class ActivitiesExpert extends Expert {
+    private static final String TAG = "MINE== ActivitiesExpert";
+    private static final String name = "Activities";
+    private static HashMap<String, Boolean> criteria = null;
 
     ActivitiesExpert(Set<Park> allParks) {
-        activities = new HashSet<>();
+        criteria = new HashMap<>(20);
         for (Park park : allParks) {
-            for (Pair<String, String> activity : park.getActivityTypes()) {
-                activities.add(activity.getItem1());
+            for (String activity : park.getActivityTypes()) {
+                criteria.put(activity, false);
             }
         }
-        //TODO anything else?
+    }
+
+    public ActivitiesExpert() {
+        super();
     }
 
     @Override
     public void getMatchingParks(Set<Park> parkSet) {
-        //TODO
+        if (isCriteriaSet()) {
+            Set<String> selected = new HashSet<>(criteria.size());
+            for (String activity : criteria.keySet()) {
+                if (criteria.get(activity)) {
+                    selected.add(activity);
+                }
+            }
+            for (Park park : parkSet) {
+                if (!park.getActivityTypes().containsAll(selected)) {
+                    parkSet.remove(park);
+                }
+            }
+        }
     }
 
     @Override
     public boolean isCriteriaSet() {
-        //TODO
-        return false;
+        return criteria.values().contains(true);
     }
 
     @Override
     public String getName() {
-
-        //TODO
-        return null;
+        return name;
     }
 
-    @Override
-    public void setFinishListener(View.OnClickListener listener) {
-        //TODO
+    public void onCriteriaSet(View view) {
+        finish();
     }
+
 
     @Override
-    public void removeFinishListener(View.OnClickListener listener) {
-        //TODO
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate");
+        setContentView(R.layout.activity_expert_activities);
+        LinearLayout content = (LinearLayout) findViewById(R.id.content_vertical);
+
+        CheckBox test;
+        for (String activity : criteria.keySet()) {
+            test = new CheckBox(this);
+            test.setText(activity);
+            test.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CheckBox box = (CheckBox) v;
+                    criteria.put(box.getText().toString(), box.isChecked());
+                }
+            });
+            content.addView(test);
+        }
     }
 
-    @Override
-    public void startNewCriteria() {
-        //TODO
-    }
-
-    @Override
-    public void modifyCriteria() {
-        //TODO
-    }
 }

@@ -1,22 +1,29 @@
 package com.sfwr.eng.a04.parkfinder.gui;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 
 import com.sfwr.eng.a04.parkfinder.R;
+import com.sfwr.eng.a04.parkfinder.blackboard.BlackBoard;
 
 public class MainActivity extends AppCompatActivity {
+    private static final String TAG = "MINE== mainactivity";
+    private BlackBoard blackBoard;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        blackBoard = new BlackBoard(this);
+
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
@@ -53,21 +60,25 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onSearchParksClick(View view) {
-
-        Intent SearchScreenIntent = new Intent(this,SearchActivity.class);
-        final int result = 1;
-        SearchScreenIntent.putExtra("callingActivity","MainPage");
-        startActivityForResult(SearchScreenIntent, result);
-
+        Log.d(TAG, "clicked_1");
+        Intent intent = new Intent(this, SearchActivity.class);
+        intent.putExtra("blackboard", blackBoard);
+        startActivity(intent);
     }
 
-    /*public void onViewAllParksClick(View view) {
-            //TODO get back to this later
-            Intent getNameScreenIntent = new Intent(this,SecondScreen.class);
-            final int result = 1;
-            getNameScreenIntent.putExtra("callingActivity","MainActivity");
-            startActivityForResult(getNameScreenIntent, result);
+//    public void onSearchParksClick(View view) {
+//        Log.d(TAG, "clicked_1");
+//        blackBoard.useExpert(this, "Facilities");
+//        Log.d(TAG, "clicked_2");
+//    }
 
-    }*/
+    public void onViewAllParksClick(View view) {
+        //TODO get back to this later
+//        Intent getNameScreenIntent = new Intent(this, SecondScreen.class);
+//        final int result = 1;
+//        getNameScreenIntent.putExtra("callingActivity", "MainActivity");
+//        startActivityForResult(getNameScreenIntent, result);
+
+    }
 }
 

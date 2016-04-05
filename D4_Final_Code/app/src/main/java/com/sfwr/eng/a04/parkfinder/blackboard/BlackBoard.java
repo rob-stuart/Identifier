@@ -1,28 +1,33 @@
 package com.sfwr.eng.a04.parkfinder.blackboard;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 
 import com.sfwr.eng.a04.parkfinder.parks.Park;
 import com.sfwr.eng.a04.parkfinder.parks.ParkDataController;
 
+import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class BlackBoard {
-    private Set<Expert> availableExperts;
-    private ParkDataController parkData;
+public class BlackBoard implements Serializable {
+    private final static String TAG = "MINE== blackboard";
+    private Set<Expert> availableExperts = null;
+    private ParkDataController parkData = null;
 
     public BlackBoard(Context context) {
+        Log.d(TAG, "init");
         parkData = new ParkDataController(context);
         availableExperts = new HashSet<>();
         availableExperts.add(new ActivitiesExpert(parkData.getParkSet()));
-        availableExperts.add(new CampingExpert(parkData.getParkSet()));
+//         availableExperts.add(new CampingExpert(parkData.getParkSet()));
         availableExperts.add(new FacilitiesExpert(parkData.getParkSet()));
-        availableExperts.add(new LocationExpert());
-        availableExperts.add(new SeasonalExpert());
+//         availableExperts.add(new LocationExpert());
+//         availableExperts.add(new SeasonalExpert());
         availableExperts.add(new SizeExpert());
-        //TODO initialize other stuff?
     }
+
 
     public Set<String> getAvailableExpertNames() {
         Set<String> names = new HashSet<>(availableExperts.size());
@@ -32,14 +37,19 @@ public class BlackBoard {
         return names;
     }
 
-    public ExpertView getExpertView(String name) {
-        assert (name != null);
+    public void useExpert(Context context, String name) {
+        Log.d(TAG, "here_1");
+        //assert (name != null);
+        Log.d(TAG, "here_2");
         for (Expert expert : availableExperts) {
+            Log.d(TAG, "loop: " + expert.getName());
             if (name.equals(expert.getName())) {
-                return (ExpertView) expert;
+                Log.d(TAG, expert.getName() + " inside if_1");
+                Intent intent = new Intent(context, expert.getClass());
+                Log.d(TAG, expert.getName() + " inside if_2");
+                context.startActivity(intent);
             }
         }
-        return null;
     }
 
     public Set<Park> getMatchingParks() {
@@ -61,6 +71,7 @@ public class BlackBoard {
             if (expert.getName().equals("LocationExpert")) {
                 parkSet = parkData.getParkSet();
                 ((LocationExpert) expert).getNearestParks(parkSet, num);
+                break;
             }
         }
         return parkSet;

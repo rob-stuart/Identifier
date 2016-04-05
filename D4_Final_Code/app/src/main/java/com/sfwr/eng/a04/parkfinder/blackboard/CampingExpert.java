@@ -1,64 +1,88 @@
 package com.sfwr.eng.a04.parkfinder.blackboard;
 
+import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.widget.CheckBox;
+import android.widget.LinearLayout;
 
-import com.sfwr.eng.a04.parkfinder.parks.Pair;
+import com.sfwr.eng.a04.parkfinder.R;
 import com.sfwr.eng.a04.parkfinder.parks.Park;
 
+import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 
 
-class CampingExpert implements Expert {
-    private String name = "Camping";
-    private Set<String> camping;
-
+public class CampingExpert extends Expert {
+    private static final String TAG = "MINE== CampingExpert";
+    private static final String name = "Camping";
+    private static HashMap<String, Boolean> criteria = null;
 
     CampingExpert(Set<Park> allParks) {
-        camping = new HashSet<>();
+        criteria = new HashMap<>(20);
         for (Park park : allParks) {
-            for (Pair<String, String> camp : park.getCampTypes()) {
-                camping.add(camp.getItem1());
+            for (String camp : park.getFacilityType()) {
+                criteria.put(camp, false);
             }
         }
-        //TODO anything else?
     }
 
+    public CampingExpert() {
+        super();
+    }
 
     @Override
     public void getMatchingParks(Set<Park> parkSet) {
-        //TODO
+        if (isCriteriaSet()) {
+            Set<String> selected = new HashSet<>(criteria.size());
+            for (String camp : criteria.keySet()) {
+                if (criteria.get(camp)) {
+                    selected.add(camp);
+                }
+            }
+            for (Park park : parkSet) {
+                if (!park.getFacilityType().containsAll(selected)) {
+                    parkSet.remove(park);
+                }
+            }
+        }
     }
 
     @Override
     public boolean isCriteriaSet() {
-        //TODO
-        return false;
+        return criteria.values().contains(true);
     }
 
     @Override
     public String getName() {
-        //TODO
-        return null;
+        return name;
+    }
+
+    public void onCriteriaSet(View view) {
+        finish();
     }
 
     @Override
-    public void setFinishListener(View.OnClickListener listener) {
-        //TODO
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        Log.d(TAG, "onCreate");
+        setContentView(R.layout.activity_expert_camp);
+        LinearLayout content = (LinearLayout) findViewById(R.id.content_vertical);
+
+        CheckBox test;
+        for (String camp : criteria.keySet()) {
+            test = new CheckBox(this);
+            test.setText(camp);
+            test.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    CheckBox box = (CheckBox) v;
+                    criteria.put(box.getText().toString(), box.isChecked());
+                }
+            });
+            content.addView(test);
+        }
     }
 
-    @Override
-    public void removeFinishListener(View.OnClickListener listener) {
-        //TODO
-    }
-
-    @Override
-    public void startNewCriteria() {
-        //TODO
-    }
-
-    @Override
-    public void modifyCriteria() {
-        //TODO
-    }
 }

@@ -6,5 +6,11 @@
     <string name="title_activity_search">SearchActivity</string>
     <string name="title_activity_weather_agent">WeatherAgentActivity</string>
     <string name="title_activity_map_agent">Map</string>
-    <string name="google_maps_key">AIzaSyB5zpxP9D25m97Wkrx0dZUJuUEw1MzvjY</string>
+    <string name="set_criteria">Set Criteria</string>
+    <string name="title_activity_my_test">MyTestActivity</string>
+    <string name="google_app_id">parkfinder-8779a</string>
+    <string name="between">Between</string>
+    <string name="less_than">Less Than</string>
+    <string name="greater_than">Greater Than</string>
+    <string name="search">Search</string>
 </resources>

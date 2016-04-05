@@ -4,7 +4,6 @@ package com.sfwr.eng.a04.parkfinder.gui;
 import android.content.Context;
 
 import com.sfwr.eng.a04.parkfinder.blackboard.BlackBoard;
-import com.sfwr.eng.a04.parkfinder.blackboard.ExpertView;
 
 import java.util.Set;
 
@@ -12,11 +11,12 @@ public class GuiController {
     private BlackBoard blackboard;
 
     protected GuiController(Context context) {
-        blackboard = new BlackBoard(context);
+        // blackboard = new BlackBoard(context);
         //TODO other stuff?
     }
 
     protected void startSearch() {
+        // Intent searchIntent = new Intent
         //TODO
     }
 
@@ -28,9 +28,8 @@ public class GuiController {
         //TODO
     }
 
-    protected ExpertView getExpertView(String name) {
+    protected void getExpertView(String name) {
         //TODO
-        return null;
     }
 
     protected void goBack() {
