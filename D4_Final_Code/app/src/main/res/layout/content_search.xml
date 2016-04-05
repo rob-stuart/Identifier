@@ -10,7 +10,11 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:context="com.sfwr.eng.a04.parkfinder.gui.SearchActivity"
-    tools:showIn="@layout/activity_search">
+    tools:showIn="@layout/activity_search"
+    >
+
+
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -20,8 +24,7 @@
         android:id="@+id/TSearch"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true" />
-
-    <TextView
+        <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
@@ -34,56 +37,69 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox"
+        android:text="Biking"
+        android:id="@+id/checkBox_Biking"
+        android:checked="false"
+        android:onClick="checkBox"
         android:layout_below="@+id/TActivities"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
-    <CheckBox
+        <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox2"
-        android:layout_alignBottom="@+id/checkBox"
+        android:text="Birding"
+        android:id="@+id/checkBox_Birding"
+        android:layout_alignBottom="@+id/checkBox_Biking"
         android:layout_alignLeft="@+id/TSearch"
-        android:layout_alignStart="@+id/TSearch" />
+        android:layout_alignStart="@+id/TSearch"
+        android:checked="false"
+        android:onClick="checkBox"/>
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox3"
-        android:layout_below="@+id/checkBox"
+        android:text="Canoeing"
+        android:id="@+id/checkBox_Canoeing"
+        android:layout_below="@+id/checkBox_Biking"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:onClick="checkBox"/>
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox4"
-        android:layout_below="@+id/checkBox2"
-        android:layout_alignLeft="@+id/checkBox2"
-        android:layout_alignStart="@+id/checkBox2" />
+        android:text="Fishing"
+        android:id="@+id/checkBox_Fishing"
+        android:layout_below="@+id/checkBox_Birding"
+        android:layout_alignLeft="@+id/checkBox_Birding"
+        android:layout_alignStart="@+id/checkBox_Birding"
+        android:checked="false"
+        android:onClick="checkBox"/>
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox5"
-        android:layout_below="@+id/checkBox3"
+        android:text="Hiking"
+        android:id="@+id/checkBox_Hiking"
+        android:layout_below="@+id/checkBox_Canoeing"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:onClick="checkBox"/>
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox6"
-        android:layout_below="@+id/checkBox4"
-        android:layout_alignLeft="@+id/checkBox4"
-        android:layout_alignStart="@+id/checkBox4" />
+        android:text="Natural Heritage"
+        android:id="@+id/checkBox_NaturalHeritage"
+        android:layout_below="@+id/checkBox_Fishing"
+        android:layout_alignLeft="@+id/checkBox_Fishing"
+        android:layout_alignStart="@+id/checkBox_Fishing"
+        android:checked="false"
+        android:onClick="checkBox"/>
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -91,63 +107,108 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Ammenities"
         android:id="@+id/TAmmenities"
-        android:layout_below="@+id/checkBox5"
+        android:layout_alignTop="@+id/checkBox_Hunting"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox7"
+        android:text="Barrier Free"
+        android:id="@+id/checkBox_BarrierFree"
         android:layout_below="@+id/TAmmenities"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:onClick="checkBox"/>
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox8"
-        android:layout_alignTop="@+id/checkBox7"
-        android:layout_alignLeft="@+id/checkBox6"
-        android:layout_alignStart="@+id/checkBox6" />
+        android:text="Boat Launch"
+        android:id="@+id/checkBox_BoatLaunch"
+        android:checked="false"
+        android:onClick="checkBox"
+        android:layout_alignTop="@+id/checkBox_FlushToilets"
+        android:layout_alignLeft="@+id/checkBox_VisitorCenter"
+        android:layout_alignStart="@+id/checkBox_VisitorCenter" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox9"
-        android:layout_below="@+id/checkBox7"
+        android:text="Comfort Stations"
+        android:id="@+id/checkBox_ComfortStations"
+        android:layout_below="@+id/checkBox_BarrierFree"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:onClick="checkBox"/>
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox10"
-        android:layout_below="@+id/checkBox8"
-        android:layout_alignLeft="@+id/checkBox8"
-        android:layout_alignStart="@+id/checkBox8" />
+        android:text="Day Use"
+        android:id="@+id/checkBox_DayUse"
+        android:checked="false"
+        android:onClick="checkBox"
+        android:layout_alignTop="@+id/checkBox_ComfortStations"
+        android:layout_alignLeft="@+id/checkBox_BoatLaunch"
+        android:layout_alignStart="@+id/checkBox_BoatLaunch" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox11"
-        android:layout_below="@+id/checkBox9"
+        android:text="Flush Toilets"
+        android:id="@+id/checkBox_FlushToilets"
+        android:layout_below="@+id/checkBox_ComfortStations"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:onClick="checkBox"/>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Park Store"
+        android:id="@+id/checkBox_ParkStore"
+        android:layout_below="@+id/checkBox_FlushToilets"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:onClick="checkBox"/>
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox12"
-        android:layout_below="@+id/checkBox10"
-        android:layout_alignLeft="@+id/checkBox10"
-        android:layout_alignStart="@+id/checkBox10" />
+        android:text="Picnic Shelters"
+        android:id="@+id/checkBox_PicnicShelters"
+        android:checked="false"
+        android:onClick="checkBox"
+        android:layout_above="@+id/checkBox_Laundromat"
+        android:layout_alignLeft="@+id/checkBox_NaturalHeritage"
+        android:layout_alignStart="@+id/checkBox_NaturalHeritage" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Rentals"
+        android:id="@+id/checkBox_Rentals"
+        android:layout_below="@+id/checkBox_ParkStore"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:onClick="checkBox"/>
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Laundromat"
+        android:id="@+id/checkBox_Laundromat"
+        android:checked="false"
+        android:onClick="checkBox"
+        android:layout_below="@+id/checkBox_Rentals"
+        android:layout_alignRight="@+id/checkBox_FlushToilets"
+        android:layout_alignEnd="@+id/checkBox_FlushToilets" />
+
 
     <TextView
         android:layout_width="wrap_content"
@@ -155,7 +216,7 @@
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:text="Size"
         android:id="@+id/TSize"
-        android:layout_below="@+id/checkBox11"
+        android:layout_above="@+id/checkBox13"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
 
@@ -164,27 +225,31 @@
         android:layout_height="wrap_content"
         android:text="New CheckBox"
         android:id="@+id/checkBox13"
-        android:layout_below="@+id/TSize"
+        android:layout_above="@+id/checkBox15"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:checked="false"
+        android:onClick="checkBox"/>
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New CheckBox"
         android:id="@+id/checkBox14"
-        android:layout_below="@+id/TSize"
-        android:layout_alignLeft="@+id/checkBox12"
-        android:layout_alignStart="@+id/checkBox12" />
+        android:onClick="checkBox"
+        android:layout_below="@+id/checkBox_PetExerciseArea"
+        android:layout_alignRight="@+id/checkBox_NaturalHeritage"
+        android:layout_alignEnd="@+id/checkBox_NaturalHeritage" />
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New CheckBox"
         android:id="@+id/checkBox15"
-        android:layout_below="@+id/checkBox13"
+        android:layout_above="@+id/BSearch"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:onClick="checkBox"/>
 
     <CheckBox
         android:layout_width="wrap_content"
@@ -193,16 +258,20 @@
         android:id="@+id/checkBox16"
         android:layout_alignTop="@+id/checkBox15"
         android:layout_alignLeft="@+id/checkBox14"
-        android:layout_alignStart="@+id/checkBox14" />
+        android:layout_alignStart="@+id/checkBox14"
+        android:onClick="checkBox"/>
+
+
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Find Nearest 5 Parks"
         android:id="@+id/BNearestFive"
-        android:layout_marginTop="43dp"
-        android:layout_below="@+id/checkBox15"
-        android:layout_centerHorizontal="true" />
+        android:layout_marginBottom="48dp"
+        android:layout_alignParentBottom="true"
+        android:layout_toRightOf="@+id/checkBox15"
+        android:layout_toEndOf="@+id/checkBox15" />
 
     <Button
         style="?android:attr/buttonStyleSmall"
@@ -210,8 +279,72 @@
         android:layout_height="wrap_content"
         android:text="Search"
         android:id="@+id/BSearch"
-        android:layout_below="@+id/checkBox15"
-        android:layout_toRightOf="@+id/checkBox15"
-        android:layout_toEndOf="@+id/checkBox15" />
+        android:layout_alignTop="@+id/BNearestFive"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:onClick="finalSelection"/>
 
-</RelativeLayout>
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Pet Exercise Area"
+        android:id="@+id/checkBox_PetExerciseArea"
+        android:checked="false"
+        android:onClick="checkBox"
+        android:layout_alignTop="@+id/checkBox_Laundromat"
+        android:layout_alignRight="@+id/checkBox14"
+        android:layout_alignEnd="@+id/checkBox14" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Visitor Center"
+        android:checked="false"
+        android:id="@+id/checkBox_VisitorCenter"
+        android:onClick="checkBox"
+        android:layout_above="@+id/checkBox_PicnicShelters"
+        android:layout_alignLeft="@+id/checkBox_PicnicShelters"
+        android:layout_alignStart="@+id/checkBox_PicnicShelters" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Hunting"
+        android:id="@+id/checkBox_Hunting"
+        android:checked="false"
+        android:onClick="checkBox"
+        android:layout_alignTop="@+id/checkBox_Swimming"
+        android:layout_toRightOf="@+id/checkBox_BoatLaunch"
+        android:layout_toEndOf="@+id/checkBox_BoatLaunch" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Swimming"
+        android:id="@+id/checkBox_Swimming"
+        android:checked="false"
+        android:onClick="checkBox"
+        android:layout_below="@+id/checkBox_NaturalHeritage"
+        android:layout_alignLeft="@+id/checkBox_NaturalHeritage"
+        android:layout_alignStart="@+id/checkBox_NaturalHeritage" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Winter Activities"
+        android:id="@+id/checkBox_WinterActivities"
+        android:checked="false"
+        android:onClick="checkBox"
+        android:layout_above="@+id/checkBox_Fishing"
+        android:layout_toRightOf="@+id/checkBox_Swimming"
+        android:layout_toEndOf="@+id/checkBox_Swimming" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="New Text"
+        android:id="@+id/final_result"
+        android:layout_toRightOf="@+id/checkBox_PicnicShelters"
+        android:layout_toEndOf="@+id/checkBox_PicnicShelters" />
+    </RelativeLayout>
+
