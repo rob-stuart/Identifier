@@ -1,10 +1,9 @@
 package com.sfwr.eng.a04.parkfinder.gui;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
-import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.LinearLayout;
@@ -14,15 +13,14 @@ import com.sfwr.eng.a04.parkfinder.blackboard.BlackBoard;
 import com.sfwr.eng.a04.parkfinder.parks.Park;
 
 public class ParkListingsActivity extends AppCompatActivity {
-    private final static String TAG = "MINE== listings";
-    private BlackBoard blackBoard;
+    private final static String TAG = "MINE.listings: ";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_park_listings);
 
-        blackBoard = (BlackBoard) getIntent().getSerializableExtra("blackboard");
+        BlackBoard blackBoard = (BlackBoard) getIntent().getSerializableExtra(BlackBoard.ID);
         LinearLayout layout = (LinearLayout) findViewById(R.id.content_vertical);
         Button but;
         for (final Park park : blackBoard.getMatchingParks()) {
@@ -32,16 +30,12 @@ public class ParkListingsActivity extends AppCompatActivity {
             but.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Button button = (Button) v;
                     Intent intent = new Intent(ParkListingsActivity.this, ParkInfoActivity.class);
-                    Log.d(TAG,"before intent");
                     intent.putExtra("park", park);
-                    Log.d(TAG, "before intent");
                     startActivity(intent);
                 }
             });
             layout.addView(but);
         }
-
     }
 }

@@ -8,7 +8,6 @@ import java.io.Serializable;
 import java.util.Set;
 
 abstract class Expert extends Activity implements Serializable {
-    public String name;
 
     abstract void getMatchingParks(Set<Park> parkSet);
 

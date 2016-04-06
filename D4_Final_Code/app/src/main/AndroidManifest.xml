@@ -1,13 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.sfwr.eng.a04.parkfinder">
+<manifest
+    package="com.sfwr.eng.a04.parkfinder"
+    xmlns:android="http://schemas.android.com/apk/res/android">
 
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
          Google Maps Android API v2, but you must specify either coarse or fine
          location permissions for the 'MyLocation' functionality. 
     -->
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
 
     <application
         android:allowBackup="true"
@@ -15,49 +16,37 @@
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity
-            android:name=".gui.MainActivity"
-            android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar">
+        <activity android:name=".gui.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
         <activity
-            android:name=".gui.ParkInfoActivity"
-            android:label="@string/title_activity_park_info"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:name=".gui.SearchActivity"/>
         <activity
-            android:name=".gui.WeatherAgentActivity"
-            android:label="@string/title_activity_weather_agent"
-            android:parentActivityName=".gui.ParkInfoActivity"
-            android:theme="@style/AppTheme.NoActionBar">
-            <meta-data
-                android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.sfwr.eng.a04.parkfinder.gui.ParkInfoActivity" />
-        </activity>
+            android:name=".gui.ParkListingsActivity"/>
+        <activity
+            android:name=".gui.ParkInfoActivity"/>
+
         <activity
             android:name=".blackboard.ActivitiesExpert"
-            android:label="ActivitiesExpertActivity"
-            android:parentActivityName=".gui.SearchActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".gui.SearchActivity"/>
         <activity
             android:name=".blackboard.CampingExpert"
-            android:label="CampingExpertActivity"
-            android:parentActivityName=".gui.SearchActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".gui.SearchActivity"/>
         <activity
             android:name=".blackboard.FacilitiesExpert"
-            android:label="FacilitiesExpertActivity"
-            android:parentActivityName=".gui.SearchActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".gui.SearchActivity"/>
         <activity
             android:name=".blackboard.SizeExpert"
-            android:label="SizeExpertActivity"
-            android:parentActivityName=".gui.SearchActivity"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:parentActivityName=".gui.SearchActivity"/>
+        <activity
+            android:name=".blackboard.LocationExpert"/>
+
+        <activity
+            android:name=".gui.MapsActivity"/>
 
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
@@ -69,13 +58,9 @@
         -->
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="@string/google_maps_key" />
+            android:value="@string/google_maps_key"/>
 
-        <activity android:name=".gui.SearchActivity" />
-        <activity android:name=".gui.ParkListingsActivity" />
-        <activity
-            android:name=".gui.MapsActivity"
-            android:label="@string/title_activity_maps"></activity>
+
     </application>
 
 </manifest>

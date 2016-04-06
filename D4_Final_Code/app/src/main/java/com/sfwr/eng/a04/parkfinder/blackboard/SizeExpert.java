@@ -1,19 +1,22 @@
 package com.sfwr.eng.a04.parkfinder.blackboard;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RadioButton;
 
 import com.sfwr.eng.a04.parkfinder.R;
 import com.sfwr.eng.a04.parkfinder.parks.Park;
 
+import java.util.HashSet;
 import java.util.Set;
 
 public class SizeExpert extends Expert {
     private static final String TAG = "MINE== ActivitiesExpert";
     public static final String name = "Size";
     private static int op = R.id.less_than;
-    private static double small, large;
+    private static double small = 0, large = 0;
     private static boolean isCriteriaSet = false;
 
     public SizeExpert() {
@@ -23,7 +26,8 @@ public class SizeExpert extends Expert {
     @Override
     public void getMatchingParks(Set<Park> parkSet) {
         if (isCriteriaSet()) {
-            for (Park park : parkSet) {
+            HashSet<Park> temp = new HashSet<>(parkSet);
+            for (Park park : temp) {
                 switch (op) {
                     case R.id.less_than:
                         if (park.getSize() > small) {
@@ -59,11 +63,46 @@ public class SizeExpert extends Expert {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_expert_size);
+        ((EditText) findViewById(R.id.editText_smaller)).setText(String.valueOf(small));
+        ((EditText) findViewById(R.id.editText_larger)).setText(String.valueOf(large));
+        ((RadioButton) findViewById(op)).setChecked(true);
+        setEditTexts(op);
+    }
 
+    private void setEditTexts(int oper) {
+        EditText smaller = (EditText) findViewById(R.id.editText_smaller);
+        EditText greater = (EditText) findViewById(R.id.editText_larger);
+        switch (oper) {
+            case R.id.less_than:
+                smaller.setEnabled(true);
+                greater.setEnabled(false);
+                break;
+            case R.id.between:
+                smaller.setEnabled(true);
+                greater.setEnabled(true);
+                break;
+            case R.id.greater_than:
+                smaller.setEnabled(false);
+                greater.setEnabled(true);
+                break;
+        }
+    }
+
+    public void onOpChosen(View view) {
+        switch (view.getId()) {
+            case R.id.less_than:
+            case R.id.between:
+            case R.id.greater_than:
+                op = view.getId();
+                setEditTexts(op);
+                break;
+            default:
+                Log.d(TAG, "bad view.ID");
+        }
     }
 
     private boolean isParsable(String str) {
-        return str.matches("[+-]?\\d*\\.\\d*");
+        return str.matches("[+-]?\\d*\\.?\\d*");
     }
 
     public void onCriteriaSet(View view) {
@@ -86,7 +125,6 @@ public class SizeExpert extends Expert {
                 large = Math.max(Double.parseDouble(size1.getText().toString()), Double.parseDouble(size2.getText().toString()));
                 isCriteriaSet = true;
                 break;
-
             case R.id.greater_than:
                 if (!isParsable(size2.getText().toString())) {
                     return;
@@ -95,48 +133,7 @@ public class SizeExpert extends Expert {
                 isCriteriaSet = true;
                 break;
         }
-
         finish();
-    }
-
-    public void onOpChosen(View view) {
-        EditText smaller = (EditText) findViewById(R.id.editText_smaller);
-        EditText greater = (EditText) findViewById(R.id.editText_larger);
-        switch (view.getId()) {
-            case R.id.less_than:
-                op = R.id.less_than;
-                smaller.findFocus();
-                smaller.setFocusable(true);
-                smaller.setFocusableInTouchMode(true);
-                smaller.setClickable(true);
-
-                greater.setFocusable(false);
-                greater.setFocusableInTouchMode(false);
-                greater.setClickable(false);
-                break;
-            case R.id.between:
-                op = R.id.between;
-                smaller.findFocus();
-                smaller.setFocusable(true);
-                smaller.setFocusableInTouchMode(true);
-                smaller.setClickable(true);
-
-                greater.setFocusable(true);
-                greater.setFocusableInTouchMode(true);
-                greater.setClickable(true);
-                break;
-            case R.id.greater_than:
-                op = R.id.greater_than;
-                smaller.setFocusable(false);
-                smaller.setFocusableInTouchMode(false);
-                smaller.setClickable(false);
-
-                greater.findFocus();
-                greater.setFocusable(true);
-                greater.setFocusableInTouchMode(true);
-                greater.setClickable(true);
-                break;
-        }
     }
 
 }

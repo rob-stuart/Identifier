@@ -1,7 +1,6 @@
 package com.sfwr.eng.a04.parkfinder.blackboard;
 
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.CheckBox;
 import android.widget.LinearLayout;
@@ -15,7 +14,7 @@ import java.util.Set;
 
 
 public class CampingExpert extends Expert {
-    private static final String TAG = "MINE== CampingExpert";
+    private static final String TAG = "MINE.camping: ";
     public static final String name = "Camping";
     private static HashMap<String, Boolean> criteria = null;
 
@@ -34,11 +33,6 @@ public class CampingExpert extends Expert {
 
     @Override
     public void getMatchingParks(Set<Park> parkSet) {
-        for (String foo : criteria.keySet()) {
-            if (criteria.get(foo)) {
-                Log.d(TAG, foo);
-            }
-        }
         if (isCriteriaSet()) {
             Set<String> selected = new HashSet<>(criteria.size());
             for (String camp : criteria.keySet()) {
@@ -52,7 +46,6 @@ public class CampingExpert extends Expert {
                     parkSet.remove(park);
                 }
             }
-
         }
     }
 
@@ -73,22 +66,22 @@ public class CampingExpert extends Expert {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.d(TAG, "onCreate");
         setContentView(R.layout.activity_expert_camp);
         LinearLayout content = (LinearLayout) findViewById(R.id.content_vertical);
 
-        CheckBox test;
+        CheckBox chkBox;
         for (String camp : criteria.keySet()) {
-            test = new CheckBox(this);
-            test.setText(camp);
-            test.setOnClickListener(new View.OnClickListener() {
+            chkBox = new CheckBox(this);
+            chkBox.setText(camp);
+            chkBox.setChecked(criteria.get(camp));
+            chkBox.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     CheckBox box = (CheckBox) v;
                     criteria.put(box.getText().toString(), box.isChecked());
                 }
             });
-            content.addView(test);
+            content.addView(chkBox);
         }
     }
 
